@@ -6,3 +6,9 @@
 4. `npm i typescript-plugin-css-modules` Установим плагин типизации стилей
 5. `npm i scss-react npm i -D sass` установим препроцессоры SCSS и SASS
 6. `npm install react-hook-form` Валидация полей формы
+7. Копируем в tsconfig.json
+   `"plugins": [
+    {
+      "name": "typescript-plugin-css-modules"
+    }
+  ]`
