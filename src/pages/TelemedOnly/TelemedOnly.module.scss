@@ -15,7 +15,80 @@
   max-width: 1300px;
   height: 72px;
   background-color: black;
+  // font-size: 24px;
+  // line-height: 48px;
+  // color: white;
   opacity: 0.5;
   position: absolute;
   top: 0;
+  // padding: 12px 0;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+}
+
+.horizontal-content {
+  width: 100%;
+  max-width: 1300px;
+  height: 72px;
+  // background-color: transparent;
+
+  position: absolute;
+  top: 0;
+  padding: 12px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 24px;
+  line-height: 48px;
+  color: white;
+}
+
+.container {
+  width: 100%;
+  max-width: 850px;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // background-color: black;
+  // opacity: 0.5;
+  position: relative;
+
+  @media screen and (min-width: 576px) {
+    padding: 0 28px;
+  }
+}
+
+.container-logo {
+  position: relative;
+}
+
+.logotypeWhite {
+  position: absolute;
+  top: -12px;
+  display: none;
+
+  @media screen and (min-width: 576px) {
+    display: block;
+  }
+}
+
+.logotypeVector {
+  position: absolute;
+  top: -12px;
+  display: block;
+
+  @media screen and (min-width: 576px) {
+    display: none;
+  }
+}
+
+.container-select {
+  max-width: 400px;
+  max-height: 48px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }

@@ -14,7 +14,12 @@ const TsarLanding: FC = () => {
   return (
     <>
       <div className={styles["tsar-landing"]}>
-        <TopMenu image={tsarImage}></TopMenu>
+        <TopMenu
+          image={tsarImage}
+          heading="Персональная медицинская помощь у вас дома"
+          subheading="Получайте квалифицированную медицинскую помощь не выходя из дома"
+          textButton="Выбрать пакет"
+        ></TopMenu>
         <div className={styles["horizontal"]}></div>
       </div>
 
