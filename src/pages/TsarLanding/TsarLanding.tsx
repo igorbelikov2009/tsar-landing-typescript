@@ -20,6 +20,7 @@ const TsarLanding: FC = () => {
           heading="Персональная медицинская помощь у вас дома"
           subheading="Получайте квалифицированную медицинскую помощь не выходя из дома"
           textButton="Выбрать пакет"
+          emitClick={clickHandler}
         ></TopMenu>
 
         <Horizontal />

@@ -7,7 +7,6 @@ import Horizontal from "../../components/TopBlock/Horizontal/Horizontal";
 
 const TelemedOnly: FC = () => {
   const navigate = useNavigate();
-
   const clickHandler = () => {
     navigate("/");
   };
@@ -20,6 +19,7 @@ const TelemedOnly: FC = () => {
           heading="Консультации с врачами онлайн"
           subheading="Получите квалифицированную помощь без посещения поликлиники. Срочные вопросы, расшифровка анализов и обследований круглосуточно из дома."
           textButton="Выбрать полис"
+          emitClick={clickHandler}
         ></TopMenu>
 
         <Horizontal />
