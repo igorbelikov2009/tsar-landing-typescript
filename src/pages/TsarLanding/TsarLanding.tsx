@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import TopMenu from "../../components/TopBlock/TopMenu/TopMenu";
 import styles from "./TsarLanding.module.scss";
 import tsarImage from "../../assets/images/tsarLanding/Header.png";
+import Horizontal from "../../components/TopBlock/Horizontal/Horizontal";
 
 const TsarLanding: FC = () => {
   const navigate = useNavigate();
@@ -20,7 +21,8 @@ const TsarLanding: FC = () => {
           subheading="Получайте квалифицированную медицинскую помощь не выходя из дома"
           textButton="Выбрать пакет"
         ></TopMenu>
-        <div className={styles["horizontal"]}></div>
+
+        <Horizontal />
       </div>
 
       <button onClick={clickHandler} style={{ marginTop: 16 }}>

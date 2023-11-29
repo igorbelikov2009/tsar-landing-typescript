@@ -1,0 +1,35 @@
+.option {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  padding: 19px 16px;
+  font-size: 14px;
+  line-height: 18px;
+  transition: color 0.3s, background 0.4s;
+  font-weight: 400;
+  cursor: pointer;
+
+  background-color: #fff;
+  color: #28323c;
+}
+
+.option-active {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  padding: 18px 16px;
+  font-size: 16px;
+  line-height: 18px;
+  transition: color 0.3s, background 0.4s;
+  font-weight: 400;
+  cursor: pointer;
+
+  background-color: #50287d;
+  color: white;
+}
+
+.input {
+  display: none;
+}

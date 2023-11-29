@@ -1,0 +1,144 @@
+.selector {
+  display: block;
+  position: relative;
+  margin-bottom: 24px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 48px;
+  }
+}
+
+.container-title {
+  max-width: 546px;
+  position: relative;
+}
+
+.border-white {
+  width: 100%;
+  border-radius: 5px;
+  position: relative;
+  border: 1px solid #fff;
+}
+
+.border-gray {
+  width: 100%;
+  border-radius: 5px;
+  position: relative;
+  border: 1px solid #e4e4e4;
+}
+
+.container-white {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.36s ease;
+
+  background-color: #fff;
+}
+
+.container-gray {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.36s ease;
+
+  background-color: #d0f0f6d1;
+}
+
+.selector-data {
+  font-size: 14px;
+  line-height: 18px;
+  color: #28323c;
+  font-weight: 400;
+  padding-left: 8px;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 8px;
+}
+
+.icon-rotate-0 {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  cursor: pointer;
+  transition: transform 0.28s;
+  transition-property: transform;
+  transition-duration: 0.28s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+
+  transform: scaleY(0.7) rotate(0deg);
+}
+
+.icon-rotate-180 {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  cursor: pointer;
+  transition: transform 0.28s;
+  transition-property: transform;
+  transition-duration: 0.28s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+
+  transform: scaleY(0.7) rotate(180deg);
+}
+
+.white-line-height-1 {
+  width: calc(100% - 16px);
+  background-color: #fff;
+  position: absolute;
+  bottom: 6px;
+  left: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 1px;
+  transition: width 0.7s ease-out;
+}
+
+.white-line-height-2 {
+  width: calc(100% - 16px);
+  background-color: #fff;
+  position: absolute;
+  bottom: 6px;
+  left: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 2px;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.black-line-width-50 {
+  background-color: black;
+  height: 1px;
+  width: 50%;
+  transition: width 0.7s ease-out;
+}
+
+//
+.black-line-width-0 {
+  background-color: black;
+  height: 2px;
+  width: 0;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+//
+
+.selector-value {
+  display: block;
+  padding: 18px 12px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #28323c;
+  font-weight: 400;
+}
