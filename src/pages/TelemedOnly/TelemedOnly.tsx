@@ -4,6 +4,7 @@ import TopMenu from "../../components/TopBlock/TopMenu/TopMenu";
 import styles from "./TelemedOnly.module.scss";
 import telemedImage from "../../assets/images/telemed/Header.jpg";
 import Horizontal from "../../components/TopBlock/Horizontal/Horizontal";
+import Pricing from "../../components/telemedOnly/Pricing/Pricing";
 
 const TelemedOnly: FC = () => {
   const navigate = useNavigate();
@@ -23,11 +24,8 @@ const TelemedOnly: FC = () => {
         ></TopMenu>
 
         <Horizontal />
+        <Pricing />
       </div>
-
-      <button onClick={clickHandler} style={{ marginTop: 16 }}>
-        Оформить полис
-      </button>
     </>
   );
 };

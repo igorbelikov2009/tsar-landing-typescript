@@ -25,10 +25,6 @@ const TsarLanding: FC = () => {
 
         <Horizontal />
       </div>
-
-      <button onClick={clickHandler} style={{ marginTop: 16 }}>
-        Показать список врачей
-      </button>
     </>
   );
 };

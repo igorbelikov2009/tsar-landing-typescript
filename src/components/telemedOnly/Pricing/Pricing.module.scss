@@ -1,0 +1,38 @@
+.pricing {
+  width: 100%;
+  max-width: 1300px;
+  height: 528px;
+  display: flex;
+  border: 1px solid red;
+  padding: 46px 0px;
+  background-color: lightgray;
+  box-sizing: border-box;
+}
+
+.pricing-container {
+  width: 100%;
+  max-width: 944px;
+  padding: 0 16px;
+  margin: 0 auto;
+  background-color: red;
+}
+
+.headings-container {
+  width: 100%;
+  max-width: 576px;
+  margin: 0 auto;
+  padding: 12px 0;
+
+  @media screen and (min-width: 576px) {
+    max-width: 671px;
+  }
+}
+
+.heading {
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #28323c;
+}
