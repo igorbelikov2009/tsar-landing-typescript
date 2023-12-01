@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import TopMenu from "../../components/TopBlock/TopMenu/TopMenu";
 import styles from "./TelemedOnly.module.scss";
@@ -7,9 +7,16 @@ import Horizontal from "../../components/TopBlock/Horizontal/Horizontal";
 import Pricing from "../../components/telemedOnly/Pricing/Pricing";
 
 const TelemedOnly: FC = () => {
+  const [cardValue, setCardValue] = useState(0);
+
   const navigate = useNavigate();
   const clickHandler = () => {
     navigate("/");
+  };
+
+  const onChangeCardValue = (value: string) => {
+    setCardValue(Number(value));
+    console.log(Number(value));
   };
 
   return (
@@ -24,7 +31,7 @@ const TelemedOnly: FC = () => {
         ></TopMenu>
 
         <Horizontal />
-        <Pricing />
+        <Pricing currentValue={cardValue} emitValue={onChangeCardValue} />
       </div>
     </>
   );

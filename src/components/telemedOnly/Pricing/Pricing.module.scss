@@ -1,20 +1,20 @@
 .pricing {
   width: 100%;
   max-width: 1300px;
-  height: 528px;
   display: flex;
-  border: 1px solid red;
-  padding: 46px 0px;
-  background-color: lightgray;
+  padding: 48px 0px;
+  padding-bottom: 24px;
+  //
+  // background-color: lightgray;
   box-sizing: border-box;
 }
 
 .pricing-container {
   width: 100%;
   max-width: 944px;
-  padding: 0 16px;
+  padding: 0 28px;
   margin: 0 auto;
-  background-color: red;
+  // background-color: red;
 }
 
 .headings-container {
@@ -22,6 +22,7 @@
   max-width: 576px;
   margin: 0 auto;
   padding: 12px 0;
+  margin-bottom: 24px;
 
   @media screen and (min-width: 576px) {
     max-width: 671px;
@@ -36,3 +37,76 @@
   font-weight: 400;
   color: #28323c;
 }
+
+.container-for-cards {
+  width: 100%;
+  max-width: 888px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+// .card {
+//   width: 280px;
+//   height: 336px;
+//   margin-left: 12px;
+//   margin-right: 12px;
+//   margin-bottom: 24px;
+//   border: #28323c 1px solid;
+//   box-sizing: border-box;
+//   box-shadow: rgba(26, 65, 101, 0.25);
+// }
+
+// .card:first-of-type {
+//   margin-left: 0px;
+//   margin-right: 0px;
+
+//   @media screen and (min-width: 655px) {
+//     margin-left: 0px;
+//     margin-right: 0px;
+//   }
+
+//   @media screen and (min-width: 946px) {
+//     margin-left: 0px;
+//     margin-right: 12px;
+//   }
+// }
+
+// .card:nth-of-type(2) {
+//   margin-left: 0px;
+//   margin-right: 0px;
+
+//   @media screen and (min-width: 655px) {
+//     margin-left: 12px;
+//     margin-right: 0px;
+//   }
+
+//   @media screen and (min-width: 946px) {
+//     margin-left: 12px;
+//     margin-right: 12px;
+//   }
+// }
+
+// .card:last-of-type {
+//   margin-left: 0px;
+//   margin-right: 0px;
+
+//   @media screen and (min-width: 655px) {
+//     margin-left: 0px;
+//     margin-right: 0px;
+//   }
+
+//   @media screen and (min-width: 946px) {
+//     margin-left: 12px;
+//     margin-right: 0px;
+//   }
+// }
+
+// .container-content {
+//   padding: 24px;
+// }
+
+// .container-button {
+//   padding: 4px;
+//   padding-top: 0px;
+// }
