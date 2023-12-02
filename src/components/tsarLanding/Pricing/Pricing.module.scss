@@ -1,0 +1,23 @@
+.pricing {
+  width: 100%;
+  max-width: 1300px;
+  display: flex;
+  padding: 48px 0px;
+  padding-bottom: 24px;
+  box-sizing: border-box;
+}
+
+.pricing-container {
+  width: 100%;
+  max-width: 944px;
+  padding: 0 28px;
+  margin: 0 auto;
+}
+
+.container-for-cards {
+  width: 100%;
+  max-width: 888px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

@@ -42,6 +42,7 @@ const Card: FC<ITelemedCardProps> = ({
       style={{ border: isHovered ? "#155ba1 1px solid" : "#28323c 1px solid" }}
     >
       <CardRadio value={value} emitValue={handlerRadio} />
+      {/* <div className={styles["container-content"]} style={{ backgroundImage: `url(${image})` }}> */}
       <div className={styles["container-content"]} style={{ backgroundImage: `url(${image})` }}>
         <div className={styles["container-prices"]}>
           <h1 className={styles["price-term"]}> {priceTerm} </h1>
@@ -53,6 +54,7 @@ const Card: FC<ITelemedCardProps> = ({
           <p className={styles["description"]}> {description} </p>
         </div>
       </div>
+
       <div className={styles["container-button"]}>
         <button className={styles["button"]}>{textButton}</button>
       </div>
