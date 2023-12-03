@@ -7,6 +7,7 @@ import Horizontal from "../../components/TopBlock/Horizontal/Horizontal";
 import СhoosePackage from "../../components/tsarLanding/СhoosePackage/СhoosePackage";
 import Pricing from "../../components/tsarLanding/Pricing/Pricing";
 import ConsultationsDoctors from "../../components/tsarLanding/ConsultationsDoctors/ConsultationsDoctors";
+import Services from "../../components/tsarLanding/services/Services/Services";
 
 const TsarLanding: FC = () => {
   const [cardValue, setCardValue] = useState(0);
@@ -35,7 +36,8 @@ const TsarLanding: FC = () => {
         <Horizontal />
         <СhoosePackage />
         <Pricing currentValue={cardValue} emitValue={onChangeCardValue} />
-        <ConsultationsDoctors></ConsultationsDoctors>
+        <ConsultationsDoctors />
+        <Services />
       </div>
     </>
   );

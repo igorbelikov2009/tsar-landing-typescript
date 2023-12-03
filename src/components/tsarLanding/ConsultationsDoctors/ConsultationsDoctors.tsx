@@ -2,8 +2,13 @@ import React, { FC } from "react";
 import styles from "./ConsultationsDoctors.module.scss";
 import doctor from "../../../assets/images/tsarLanding/doctor.jpg";
 import phone from "../../../assets/images/tsarLanding/phone.jpg";
+import ButtonSecondary from "../../ui/buttons/ButtonSecondary/ButtonSecondary";
 
 const ConsultationsDoctors: FC = () => {
+  const ckickHandler = () => {
+    console.log("список врачей");
+  };
+
   return (
     <div className={styles["consultations-doctors"]}>
       <div className={styles["main-container"]}>
@@ -25,13 +30,13 @@ const ConsultationsDoctors: FC = () => {
           </div>
 
           <div className={styles["container-images"]}>
-            <img className={styles["images-item"]} src={phone} alt="phone" />
             <img className={styles["images-item"]} src={doctor} alt="doctor" />
+            <img className={styles["images-item"]} src={phone} alt="phone" />
           </div>
         </div>
 
         <div className={styles["container-button"]}>
-          <button>Показать список врачей</button>
+          <ButtonSecondary textButton="Показать список врачей" emitClick={ckickHandler} />
         </div>
       </div>
     </div>

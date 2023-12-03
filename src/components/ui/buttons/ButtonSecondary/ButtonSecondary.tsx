@@ -1,12 +1,12 @@
 import React, { FC } from "react";
-import styles from "./ButtonPrimary.module.scss";
+import styles from "./ButtonSecondary.module.scss";
 
-interface ButtonPrimaryProps {
+interface ButtonSecondaryProps {
   textButton: string;
   emitClick: () => void;
 }
 
-const ButtonPrimary: FC<ButtonPrimaryProps> = ({ textButton, emitClick }) => {
+const ButtonSecondary: FC<ButtonSecondaryProps> = ({ textButton, emitClick }) => {
   return (
     <button className={styles["button"]} onClick={emitClick}>
       {textButton}
@@ -14,4 +14,4 @@ const ButtonPrimary: FC<ButtonPrimaryProps> = ({ textButton, emitClick }) => {
   );
 };
 
-export default ButtonPrimary;
+export default ButtonSecondary;

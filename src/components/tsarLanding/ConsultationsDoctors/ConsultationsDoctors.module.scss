@@ -1,7 +1,6 @@
 .consultations-doctors {
   width: 100%;
   max-width: 1300px;
-  height: 624px;
   background-color: #f3f5f7;
 }
 
@@ -9,7 +8,7 @@
   width: 100%;
   max-width: 944px;
   margin: 0 auto;
-  height: 552px;
+  // height: 552px;
   padding: 48px 28px;
 }
 
@@ -29,7 +28,7 @@
   flex-direction: column;
   justify-content: flex-start;
 
-  @media screen and (min-width: 576px) {
+  @media screen and (min-width: 820px) {
     flex-direction: row;
     justify-content: space-between;
   }
@@ -40,7 +39,7 @@
   margin-right: 0;
   margin-bottom: 24px;
 
-  @media screen and (min-width: 576px) {
+  @media screen and (min-width: 820px) {
     width: 57%;
     margin-right: 2.8%;
     margin-bottom: 24px;
@@ -61,41 +60,42 @@
 }
 
 .container-images {
-  width: 100%;
+  width: 356px;
   height: 288px;
   position: relative;
 
   display: flex;
   flex-wrap: wrap;
   flex-direction: column-reverse;
-
-  @media screen and (min-width: 576px) {
-    width: 40%;
-  }
 }
 
 .images-item {
   width: 100%;
-  width: 203px;
-  height: 216px;
   margin-bottom: 0;
 
+  &:first-of-type {
+    width: 204px;
+    height: 192px;
+    position: absolute;
+    position: relative;
+    right: 0;
+    top: 0px;
+  }
+
   &:last-of-type {
+    width: 203px;
+    height: 216px;
     margin-bottom: 24px;
     margin-bottom: 0;
     position: relative;
-    left: 0;
+    position: absolute;
+    left: 152px;
     top: 0px;
     bottom: 7em;
-  }
-
-  &:first-of-type {
-    position: absolute;
-    right: 0;
-    top: 0px;
   }
 }
 
 .container-button {
+  width: 280px;
   margin-top: 48px;
 }
