@@ -5,6 +5,8 @@ import styles from "./TelemedOnly.module.scss";
 import telemedImage from "../../assets/images/telemed/Header.jpg";
 import Horizontal from "../../components/TopBlock/Horizontal/Horizontal";
 import Pricing from "../../components/telemedOnly/Pricing/Pricing";
+import Footer from "../../components/Footer/Footer";
+import Сonsultations from "../../components/telemedOnly/consultations/Сonsultations/Сonsultations";
 
 const TelemedOnly: FC = () => {
   const [cardValue, setCardValue] = useState(0);
@@ -32,6 +34,8 @@ const TelemedOnly: FC = () => {
 
         <Horizontal />
         <Pricing currentValue={cardValue} emitValue={onChangeCardValue} />
+        <Сonsultations />
+        <Footer />
       </div>
     </>
   );
