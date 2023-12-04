@@ -1,0 +1,47 @@
+.container-description-item {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+  margin-bottom: 48px;
+
+  &:nth-of-type(2) {
+    margin-bottom: 72px;
+  }
+}
+
+.container-number {
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  background-color: #f3f5f7;
+  position: relative;
+}
+
+.number {
+  display: block;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: -120px;
+  left: 0;
+  font-size: 11px;
+  line-height: 24;
+  font-weight: 400;
+  color: #00d2ff;
+  text-align: center;
+}
+
+.container-title {
+  width: calc(100% - 32px);
+  position: absolute;
+  top: 0;
+  left: 32px;
+}
+
+.title {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #28323c;
+}

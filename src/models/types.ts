@@ -7,7 +7,7 @@ export interface IOptionItem {
 
 export interface ITelemedCardItem {
   value: string;
-  image: string;
+  background: string;
   priceTerm: string;
   priceMmonth: string;
   price: string;

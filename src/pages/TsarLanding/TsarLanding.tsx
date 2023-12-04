@@ -9,6 +9,7 @@ import Pricing from "../../components/tsarLanding/Pricing/Pricing";
 import ConsultationsDoctors from "../../components/tsarLanding/ConsultationsDoctors/ConsultationsDoctors";
 import Services from "../../components/tsarLanding/services/Services/Services";
 import RenaissanceHealth from "../../components/tsarLanding/renaissanceHealth/RenaissanceHealth/RenaissanceHealth";
+import HowWorks from "../../components/tsarLanding/howWorks/HowWorks/HowWorks";
 
 const TsarLanding: FC = () => {
   const [cardValue, setCardValue] = useState(0);
@@ -40,6 +41,7 @@ const TsarLanding: FC = () => {
         <ConsultationsDoctors />
         <Services />
         <RenaissanceHealth />
+        <HowWorks />
       </div>
     </>
   );

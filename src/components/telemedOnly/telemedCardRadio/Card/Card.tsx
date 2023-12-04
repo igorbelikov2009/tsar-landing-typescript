@@ -1,13 +1,13 @@
 import React, { FC, useState } from "react";
+import BackgroundItem from "../../../ui/BackgroundItem/BackgroundItem";
 import CardRadio from "../CardRadio/CardRadio";
-
 import styles from "./Card.module.scss";
 
 interface ITelemedCardProps {
   isActive: boolean;
 
   value: string;
-  image: string;
+  background: string;
   priceTerm: string;
   priceMmonth: string;
   price: string;
@@ -24,7 +24,7 @@ const Card: FC<ITelemedCardProps> = ({
   priceMmonth,
   price,
   description,
-  image,
+  background,
   textButton,
   emitValue,
 }) => {
@@ -39,11 +39,13 @@ const Card: FC<ITelemedCardProps> = ({
       onMouseOver={() => setIsHovered(true)}
       onMouseOut={() => setIsHovered(false)}
       className={isActive ? styles["card_actived"] : styles["card"]}
-      style={{ border: isHovered ? "#155ba1 1px solid" : "#28323c 1px solid" }}
+      style={{
+        border: isHovered ? "#155ba1 1px solid" : "#28323c 1px solid",
+      }}
     >
       <CardRadio value={value} emitValue={handlerRadio} />
-      {/* <div className={styles["container-content"]} style={{ backgroundImage: `url(${image})` }}> */}
-      <div className={styles["container-content"]} style={{ backgroundImage: `url(${image})` }}>
+
+      <div className={styles["container-content"]}>
         <div className={styles["container-prices"]}>
           <h1 className={styles["price-term"]}> {priceTerm} </h1>
           <p className={styles["price-month"]}> {priceMmonth} </p>
@@ -57,6 +59,9 @@ const Card: FC<ITelemedCardProps> = ({
 
       <div className={styles["container-button"]}>
         <button className={styles["button"]}>{textButton}</button>
+      </div>
+      <div className={styles["container-image"]}>
+        <BackgroundItem background={background} alt={background} />
       </div>
     </label>
   );

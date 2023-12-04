@@ -8,6 +8,7 @@
   border: #28323c 1px solid;
   box-sizing: border-box;
   cursor: pointer;
+  position: relative;
 
   &::before {
     content: "";
@@ -33,6 +34,7 @@
   border: #155ba1 1px solid;
   box-sizing: border-box;
   cursor: pointer;
+  position: relative;
 
   &::before {
     content: "";
@@ -142,13 +144,14 @@
 .container-content {
   width: 100%;
   height: 272px;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  // background-position: center center;
+  // background-repeat: no-repeat;
+  // background-size: cover;
   padding: 24px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  // position: relative;
 }
 
 .container-prices {
@@ -187,14 +190,22 @@
 }
 
 .container-button {
-  height: 72px;
+  height: 68px;
   padding: 4px;
   padding-top: 0px;
 }
 
 .button {
   width: 100%;
-  height: 100%;
+  height: 60px;
   border-radius: 2px;
   background-color: purple;
+}
+
+.container-image {
+  width: 100%;
+  height: 336px;
+  position: absolute;
+  top: 0;
+  left: 0;
 }

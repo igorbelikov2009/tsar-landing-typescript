@@ -12,7 +12,7 @@ const Pricing: FC<PricingProps> = ({ currentValue, emitValue }) => {
   const TelemedCards: ITelemedCardItem[] = [
     {
       value: "0",
-      image: "../../../assets/images/clouds/Clouds_1.svg",
+      background: "clouds1",
       priceTerm: "1",
       priceMmonth: "месяц",
       price: "100 ₽",
@@ -21,7 +21,7 @@ const Pricing: FC<PricingProps> = ({ currentValue, emitValue }) => {
     },
     {
       value: "1",
-      image: "../../../assets/images/clouds/Clouds_2.svg",
+      background: "clouds2",
       priceTerm: "3",
       priceMmonth: "месяцев",
       price: "700 ₽",
@@ -30,7 +30,7 @@ const Pricing: FC<PricingProps> = ({ currentValue, emitValue }) => {
     },
     {
       value: "2",
-      image: "../../../assets/images/clouds/Clouds_3.svg",
+      background: "clouds3",
       priceTerm: "12",
       priceMmonth: "месяцев",
       price: "900 ₽",
@@ -56,7 +56,7 @@ const Pricing: FC<PricingProps> = ({ currentValue, emitValue }) => {
             <Card
               key={index}
               value={card.value}
-              image={card.image}
+              background={card.background}
               priceTerm={card.priceTerm}
               priceMmonth={card.priceMmonth}
               price={card.price}
