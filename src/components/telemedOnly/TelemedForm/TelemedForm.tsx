@@ -3,7 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import Checkbox from "../../ui/Checkbox/Checkbox";
 import InputSubmit from "../../ui/inputs/InputSubmit/InputSubmit";
 import InputTitle from "../../ui/inputs/InputTitle/InputTitle";
-import styles from "./TsarForm.module.scss";
+import styles from "./TelemedForm.module.scss";
 
 type Inputs = {
   userName: string;
@@ -12,7 +12,7 @@ type Inputs = {
   phone: string;
 };
 
-const TsarForm = () => {
+const TelemedForm = () => {
   const [isDormancyUserName, setDormancyUserName] = useState(true);
   const [isDormancySurname, setDormancySurname] = useState(true);
   const [isDormancyPatronymic, setDormancyPatronymic] = useState(true);
@@ -60,6 +60,7 @@ const TsarForm = () => {
     // Для typescript вы можете использовать ||оператор и добавить к нему строку, чтобы она больше
     // не была нулевой. JSON.parse(localStorage.getItem("formData-renaissance-pension") || "")
   }
+
   //   console.log(formData);
 
   return (
@@ -207,4 +208,4 @@ const TsarForm = () => {
   );
 };
 
-export default TsarForm;
+export default TelemedForm;

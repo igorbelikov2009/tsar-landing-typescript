@@ -9,6 +9,7 @@ import Footer from "../../components/Footer/Footer";
 import Сonsultations from "../../components/telemedOnly/consultations/Сonsultations/Сonsultations";
 import HowWorks from "../../components/telemedOnly/howWorks/HowWorks/HowWorks";
 import Explanations from "../../components/telemedOnly/howWorks/Explanations/Explanations";
+import TelemedForm from "../../components/telemedOnly/TelemedForm/TelemedForm";
 
 const TelemedOnly: FC = () => {
   const [cardValue, setCardValue] = useState(0);
@@ -39,7 +40,7 @@ const TelemedOnly: FC = () => {
         <Сonsultations />
         <HowWorks />
         <Explanations />
-
+        <TelemedForm />
         <Footer />
       </div>
     </>
