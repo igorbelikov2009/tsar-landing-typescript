@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { IOptionItem } from "../../../models/types";
 import Checkbox from "../../ui/Checkbox/Checkbox";
 import InputSubmit from "../../ui/inputs/InputSubmit/InputSubmit";
 import InputTitle from "../../ui/inputs/InputTitle/InputTitle";
+import SelectorAndOptionBlock from "../../ui/select/SelectorAndOptionBlock/SelectorAndOptionBlock";
 import styles from "./TsarForm.module.scss";
 
 type Inputs = {
@@ -19,11 +21,21 @@ const TsarForm = () => {
   const [isDormancyPhone, setDormancyPhone] = useState(true);
   const [isAgree, setAgree] = useState(false);
 
+  const [currentValue, setCurrentValue] = useState("Базовый на 1 месяц");
+  const [, setId] = useState("0");
+  const [isVisible, setIsVisible] = useState(false);
+
   const title = "Продолжая, я соглашаюсь с  ";
   const span = " правилами ";
   const secondTitle = " и ";
   const secondSpan = " программой ";
   const subtitle = "оказания услуг.";
+
+  const optionsItems: IOptionItem[] = [
+    { id: "0", value: "Базовый на 1 месяц", date: "Базовый на 1 месяц" },
+    { id: "1", value: "Расширенный на 1 месяц", date: "Расширенный на 1 месяц" },
+    { id: "2", value: "Полный на 1 месяц", date: "Полный на 1 месяц" },
+  ];
 
   const {
     register, // позволяет регистрировать различные поля для форм
@@ -61,6 +73,17 @@ const TsarForm = () => {
     // не была нулевой. JSON.parse(localStorage.getItem("formData-renaissance-pension") || "")
   }
   //   console.log(formData);
+
+  const onClickSelector = () => {
+    setIsVisible((prev) => !prev);
+  };
+  const onChangeRadio = (value: string, id: string) => {
+    setCurrentValue(value);
+    setId(id);
+  };
+  const onClickRadio = () => {
+    setIsVisible(false);
+  };
 
   return (
     <section className={styles["form"]}>
@@ -195,6 +218,17 @@ const TsarForm = () => {
               secondTitle={secondTitle}
               secondSpan={secondSpan}
               subtitle={subtitle}
+            />
+          </div>
+
+          <div className={styles["form__selector-container"]}>
+            <SelectorAndOptionBlock
+              currentValue={currentValue}
+              optionsItems={optionsItems}
+              isVisible={isVisible}
+              onClickSelector={onClickSelector}
+              emitOnChangeRadio={onChangeRadio}
+              emitOnClickRadio={onClickRadio}
             />
           </div>
 

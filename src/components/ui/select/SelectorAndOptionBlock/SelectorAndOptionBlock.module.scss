@@ -1,0 +1,17 @@
+.container {
+  width: 100%;
+  position: relative;
+}
+
+.select-options_hide {
+  width: 100%;
+  transition: all 0.28s;
+  visibility: hidden;
+  transform: scale(0.1);
+}
+
+.select-options_show {
+  width: 100%;
+  visibility: visible;
+  transform: scale(1);
+}

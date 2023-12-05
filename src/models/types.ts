@@ -1,5 +1,5 @@
 export interface IOptionItem {
-  data?: string;
+  date: string;
   value: string;
   id: string;
   name?: string;
@@ -45,4 +45,11 @@ export interface RadioProps {
   optionsItems: RadioItemProps[];
   emitValue: (event: string) => void;
   currentValue: string;
+}
+
+export interface IOptionItem {
+  date: string;
+  value: string;
+  id: string;
+  name?: string;
 }
