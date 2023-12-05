@@ -1,0 +1,43 @@
+.my-input {
+  &__title {
+    position: absolute;
+    left: 0px;
+    color: #78828c;
+    transition: all 0.5s;
+
+    top: 24px;
+    font-size: 16px;
+  }
+
+  &__title-top {
+    position: absolute;
+    left: 0px;
+    color: #78828c;
+    transition: all 0.5s;
+
+    top: 0px;
+    font-size: 11px;
+  }
+
+  &__title-else-none {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    font-size: 11px;
+    color: #78828c;
+    transition: all 0.01s 0.01s;
+
+    opacity: 0;
+  }
+
+  &__title-else-visible {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    font-size: 11px;
+    color: #78828c;
+    transition: all 0.01s 0.49s;
+
+    opacity: 1;
+  }
+}
