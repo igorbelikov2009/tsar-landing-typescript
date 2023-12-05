@@ -1,0 +1,22 @@
+.paragraph-before {
+  color: #28323c;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  vertical-align: baseline;
+  box-sizing: border-box;
+  position: relative;
+  margin-left: 32px;
+
+  &::before {
+    position: absolute;
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: black;
+    left: -24px;
+    top: 8px;
+  }
+}

@@ -7,6 +7,8 @@ import Horizontal from "../../components/TopBlock/Horizontal/Horizontal";
 import Pricing from "../../components/telemedOnly/Pricing/Pricing";
 import Footer from "../../components/Footer/Footer";
 import Сonsultations from "../../components/telemedOnly/consultations/Сonsultations/Сonsultations";
+import HowWorks from "../../components/telemedOnly/howWorks/HowWorks/HowWorks";
+import Explanations from "../../components/telemedOnly/howWorks/Explanations/Explanations";
 
 const TelemedOnly: FC = () => {
   const [cardValue, setCardValue] = useState(0);
@@ -35,6 +37,9 @@ const TelemedOnly: FC = () => {
         <Horizontal />
         <Pricing currentValue={cardValue} emitValue={onChangeCardValue} />
         <Сonsultations />
+        <HowWorks />
+        <Explanations />
+
         <Footer />
       </div>
     </>
