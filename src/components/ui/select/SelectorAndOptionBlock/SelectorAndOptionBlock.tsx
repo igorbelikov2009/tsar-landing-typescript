@@ -6,6 +6,7 @@ import styles from "./SelectorAndOptionBlock.module.scss";
 
 interface SelectorAndOptionBlockProps {
   isVisible: boolean;
+  isDarkgray: boolean;
   optionsItems: IOptionItem[];
   currentValue: string;
   onClickSelector: () => void;
@@ -16,6 +17,7 @@ interface SelectorAndOptionBlockProps {
 // const ControllerOption
 const SelectorAndOptionBlock: FC<SelectorAndOptionBlockProps> = ({
   isVisible,
+  isDarkgray,
   optionsItems,
   currentValue,
   onClickSelector,
@@ -35,7 +37,12 @@ const SelectorAndOptionBlock: FC<SelectorAndOptionBlockProps> = ({
 
   return (
     <div className={styles["container"]}>
-      <Selector value={currentValue} isVisible={isVisible} onClickSelector={onClickRadioSelector} />
+      <Selector
+        value={currentValue}
+        isVisible={isVisible}
+        isDarkgray={isDarkgray}
+        onClickSelector={onClickRadioSelector}
+      />
 
       <div className={isVisible ? styles["select-options_show"] : styles["select-options_hide"]}>
         <OptionBlockForSelector

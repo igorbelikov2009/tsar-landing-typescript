@@ -30,7 +30,6 @@ export interface ITsarCardItem {
 export interface RadioLabelProps {
   value: string;
   title: string;
-  name?: string;
   isActive: boolean;
   emitValue: (event: string) => void;
 }

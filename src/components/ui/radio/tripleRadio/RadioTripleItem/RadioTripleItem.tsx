@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { RadioLabelProps } from "../../../../../models/types";
 import styles from "./RadioTripleItem.module.scss";
 
-const RadioTripleItem: FC<RadioLabelProps> = ({ value, title, name, emitValue, isActive }) => {
+const RadioTripleItem: FC<RadioLabelProps> = ({ value, title, emitValue, isActive }) => {
   const radioHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     emitValue(event.target.value);
   };

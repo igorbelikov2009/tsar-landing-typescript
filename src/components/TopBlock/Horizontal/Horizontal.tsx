@@ -2,15 +2,33 @@ import React, { FC, useState } from "react";
 import styles from "./Horizontal.module.scss";
 import logotypeWhite from "../../../assets/logotypes/logotypeWhite.svg";
 import logotypeVector from "../../../assets/logotypes/logotypeVector.svg";
-import Form from "react-bootstrap/Form";
+// import Form from "react-bootstrap/Form";
+import SelectorAndOptionBlock from "../../ui/select/SelectorAndOptionBlock/SelectorAndOptionBlock";
+import { IOptionItem } from "../../../models/types";
 
 const Horizontal: FC = () => {
-  const [value, setValue] = useState<string>("Москва");
+  const [currentValue, setCurrentValue] = useState("Москва");
+  const [, setId] = useState("0");
+  const [isVisible, setIsVisible] = useState(false);
+  const [isDarkgray] = useState(true);
 
-  const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setValue(e.target.value);
+  const optionsItems: IOptionItem[] = [
+    { id: "0", value: "Москва", date: "Москва" },
+    { id: "1", value: "Санкт-Петербург", date: "Санкт-Петербург" },
+    { id: "2", value: "Екатеринбург", date: "Екатеринбург" },
+    { id: "3", value: "Другие регионы", date: "Другие регионы" },
+  ];
+
+  const onClickSelector = () => {
+    setIsVisible((prev) => !prev);
   };
-
+  const onChangeRadio = (value: string, id: string) => {
+    setCurrentValue(value);
+    setId(id);
+  };
+  const onClickRadio = () => {
+    setIsVisible(false);
+  };
   return (
     <>
       <div className={styles["horizontal"]}></div>
@@ -23,14 +41,23 @@ const Horizontal: FC = () => {
           </div>
 
           <div className={styles["container-select"]}>
-            <Form>
+            <SelectorAndOptionBlock
+              currentValue={currentValue}
+              optionsItems={optionsItems}
+              isVisible={isVisible}
+              isDarkgray={isDarkgray}
+              onClickSelector={onClickSelector}
+              emitOnChangeRadio={onChangeRadio}
+              emitOnClickRadio={onClickRadio}
+            />
+            {/* <Form>
               <Form.Select value={value} onChange={handleSelect} aria-label="Default select example">
                 <option value="Москва">Москва</option>
                 <option value="Санкт-Петербург">Санкт-Петербург</option>
                 <option value="Екатеренбург">Екатеренбург</option>
                 <option value="Другие регионы">Другие регионы</option>
               </Form.Select>
-            </Form>
+            </Form> */}
           </div>
         </div>
       </div>

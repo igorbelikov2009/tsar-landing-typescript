@@ -7,11 +7,19 @@
   width: 100%;
   transition: all 0.28s;
   visibility: hidden;
+  position: absolute;
+  left: 0px;
+  top: 62px;
   transform: scale(0.1);
 }
 
 .select-options_show {
   width: 100%;
+  position: absolute;
+  left: 0px;
+  top: 62px;
+  transition: all 0.28s;
+
   visibility: visible;
   transform: scale(1);
 }

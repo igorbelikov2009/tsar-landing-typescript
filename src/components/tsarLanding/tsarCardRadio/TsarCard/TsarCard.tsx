@@ -35,6 +35,7 @@ const TsarCard: FC<TsarCardProps> = ({
   const [isHovered, setIsHovered] = useState(false);
   const handlerRadio = (value: string) => {
     emitValue(value);
+    // console.log(value);
   };
 
   return (

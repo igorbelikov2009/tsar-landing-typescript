@@ -24,6 +24,7 @@ const TsarForm = () => {
   const [currentValue, setCurrentValue] = useState("Базовый на 1 месяц");
   const [, setId] = useState("0");
   const [isVisible, setIsVisible] = useState(false);
+  const [isDarkgray] = useState(false);
 
   const title = "Продолжая, я соглашаюсь с  ";
   const span = " правилами ";
@@ -226,6 +227,7 @@ const TsarForm = () => {
               currentValue={currentValue}
               optionsItems={optionsItems}
               isVisible={isVisible}
+              isDarkgray={isDarkgray}
               onClickSelector={onClickSelector}
               emitOnChangeRadio={onChangeRadio}
               emitOnClickRadio={onClickRadio}

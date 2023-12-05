@@ -4,14 +4,14 @@ import TsarCard from "../tsarCardRadio/TsarCard/TsarCard";
 import styles from "./Pricing.module.scss";
 
 interface PricingProps {
-  currentValue: number;
+  currentValue: string;
   emitValue: (value: string) => void;
 }
 
 const Pricing: FC<PricingProps> = ({ currentValue, emitValue }) => {
   const TsarCards: ITsarCardItem[] = [
     {
-      value: "0",
+      value: "Базовый на 1 месяц",
       namePackage: "Базовый",
       description: "Самый популярный",
       price: "900 ₽",
@@ -22,7 +22,7 @@ const Pricing: FC<PricingProps> = ({ currentValue, emitValue }) => {
       textButton: "Выбрать на 1 месяц",
     },
     {
-      value: "1",
+      value: "Расширенный на 1 месяц",
       namePackage: "Расширенный",
       description: null,
       price: "5 200 ₽",
@@ -30,10 +30,10 @@ const Pricing: FC<PricingProps> = ({ currentValue, emitValue }) => {
       title2: "Доставка лекарств",
       title3: "Вызовы врачей на дом",
       title4: null,
-      textButton: "Выбрать на 9 месяцев",
+      textButton: "Выбрать на 1 месяц",
     },
     {
-      value: "2",
+      value: "Полный на 1 месяц",
       namePackage: "Полный",
       description: null,
       price: "8 200 ₽",
@@ -41,7 +41,7 @@ const Pricing: FC<PricingProps> = ({ currentValue, emitValue }) => {
       title2: "Доставка лекарств",
       title3: "Вызовы врачей на дом",
       title4: "Страховка от COVID-19",
-      textButton: "Выбрать на 12 месяцев",
+      textButton: "Выбрать на 1 месяц",
     },
   ];
 
@@ -66,7 +66,7 @@ const Pricing: FC<PricingProps> = ({ currentValue, emitValue }) => {
               title4={card.title4}
               textButton={card.textButton}
               emitValue={onChangeCardValue}
-              isActive={index === currentValue}
+              isActive={card.value === currentValue}
             />
           ))}
         </div>

@@ -14,7 +14,7 @@ import Footer from "../../components/Footer/Footer";
 import TsarForm from "../../components/tsarLanding/TsarForm/TsarForm";
 
 const TsarLanding: FC = () => {
-  const [cardValue, setCardValue] = useState(0);
+  const [cardValue, setCardValue] = useState("Базовый на 1 месяц");
 
   const navigate = useNavigate();
   const clickHandler = () => {
@@ -22,8 +22,8 @@ const TsarLanding: FC = () => {
   };
 
   const onChangeCardValue = (value: string) => {
-    setCardValue(Number(value));
-    console.log(Number(value));
+    setCardValue(value);
+    // console.log(value);
   };
 
   return (

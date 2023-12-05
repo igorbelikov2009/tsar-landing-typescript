@@ -10,9 +10,9 @@ const СhoosePackage = () => {
   };
 
   const optionsItems: RadioItemProps[] = [
-    { title: "На 1 месяц", value: "0" },
-    { title: "На 3 месяца", value: "1" },
-    { title: "На 12 месяцев", value: "2" },
+    { title: "Базовый на 1 месяц", value: "Базовый на 1 месяц" },
+    { title: "Расширенный на 1 месяц", value: "Расширенный на 1 месяц" },
+    { title: "Полный на 1 месяц", value: "Полный на 1 месяц" },
   ];
 
   return (
