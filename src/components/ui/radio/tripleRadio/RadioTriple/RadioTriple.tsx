@@ -3,9 +3,9 @@ import { RadioProps } from "../../../../../models/types";
 import RadioTripleItem from "../RadioTripleItem/RadioTripleItem";
 import styles from "./RadioTriple.module.scss";
 
-const RadioTriple: FC<RadioProps> = ({ optionsItems, currentValue, emitValue }) => {
-  const onChangeRadio = (value: string) => {
-    emitValue(value);
+const RadioTriple: FC<RadioProps> = ({ optionsItems, currentValue, emitValue, index }) => {
+  const onChangeRadio = (value: string, index: number) => {
+    emitValue(value, index);
   };
 
   return (
@@ -15,7 +15,7 @@ const RadioTriple: FC<RadioProps> = ({ optionsItems, currentValue, emitValue }) 
           <RadioTripleItem
             key={item.value}
             value={item.value}
-            title={item.title}
+            index={item.index}
             emitValue={onChangeRadio}
             isActive={item.value === currentValue}
           />

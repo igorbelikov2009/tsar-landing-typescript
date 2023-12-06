@@ -29,26 +29,26 @@ export interface ITsarCardItem {
 
 export interface RadioLabelProps {
   value: string;
-  title: string;
+  // title: string;
+  index: number;
   isActive: boolean;
-  emitValue: (event: string) => void;
+  emitValue: (event: string, index: number) => void;
 }
 
 export interface RadioItemProps {
   value: string;
-  title: string;
-  name?: string;
+  index: number;
 }
 
 export interface RadioProps {
   optionsItems: RadioItemProps[];
-  emitValue: (event: string) => void;
+  emitValue: (event: string, index: number) => void;
   currentValue: string;
+  index: number;
 }
 
 export interface IOptionItem {
   date: string;
   value: string;
   id: string;
-  name?: string;
 }
