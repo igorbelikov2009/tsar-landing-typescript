@@ -28,7 +28,6 @@ export interface ITsarCardItem {
 
 export interface RadioLabelProps {
   value: string;
-
   numberMonths: number;
   isActive: boolean;
   emitValue: (event: string, numberMonths: number) => void;
@@ -46,10 +45,10 @@ export interface RadioProps {
   numberMonths: number;
 }
 
-export interface IOptionItem {
-  label: string;
-  value: string;
-}
+// export interface IOptionItem {
+//   label: string;
+//   value: string;
+// }
 
 //  for react-select
 export interface IOption {

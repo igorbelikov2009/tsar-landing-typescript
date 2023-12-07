@@ -18,6 +18,7 @@ interface TsarCardProps {
 
   numberMonths: number;
   emitValue: (value: string) => void;
+  emitPackagePrice: (packagePrice: number) => void;
 }
 
 const TsarCard: FC<TsarCardProps> = ({
@@ -34,6 +35,7 @@ const TsarCard: FC<TsarCardProps> = ({
   textButton,
   numberMonths,
   emitValue,
+  emitPackagePrice,
 }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isHovered, setIsHovered] = useState(false);
@@ -44,10 +46,16 @@ const TsarCard: FC<TsarCardProps> = ({
     // console.log(value);
   };
 
+  const handlerClick = () => {
+    emitPackagePrice(packagePrice);
+    // console.log(packagePrice);
+  };
+
   return (
     <label
       onMouseOver={() => setIsHovered(true)}
       onMouseOut={() => setIsHovered(false)}
+      onClick={handlerClick}
       className={isActive ? styles["card_actived"] : styles["card"]}
       style={{ border: isHovered ? "#155ba1 1px solid" : "#28323c 1px solid" }}
     >

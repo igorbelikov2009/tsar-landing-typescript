@@ -8,9 +8,10 @@ interface PricingProps {
   valueСhoosePackage: string;
   numberMonths: number;
   emitValue: (value: string) => void;
+  emitPackagePrice: (packagePrice: number) => void;
 }
 
-const Pricing: FC<PricingProps> = ({ currentValue, valueСhoosePackage, numberMonths, emitValue }) => {
+const Pricing: FC<PricingProps> = ({ currentValue, valueСhoosePackage, numberMonths, emitValue, emitPackagePrice }) => {
   const TsarCards: ITsarCardItem[] = [
     {
       value: `Базовый ${valueСhoosePackage}`,
@@ -53,6 +54,10 @@ const Pricing: FC<PricingProps> = ({ currentValue, valueСhoosePackage, numberMo
   const onChangeCardValue = (value: string) => {
     emitValue(value);
   };
+  const onChangePackagePrice = (packagePrice: number) => {
+    emitPackagePrice(packagePrice);
+    // console.log(packagePrice);
+  };
 
   return (
     <div className={styles["pricing"]}>
@@ -73,6 +78,7 @@ const Pricing: FC<PricingProps> = ({ currentValue, valueСhoosePackage, numberMo
               textButton={card.textButton}
               numberMonths={numberMonths}
               emitValue={onChangeCardValue}
+              emitPackagePrice={onChangePackagePrice}
               isActive={card.value === currentValue}
             />
           ))}

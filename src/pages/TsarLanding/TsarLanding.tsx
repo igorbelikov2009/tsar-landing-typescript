@@ -18,6 +18,7 @@ const TsarLanding: FC = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [numberMonths, setNumberMonths] = useState<number>(1);
   const [valueСhoosePackage, setValueСhoosePackage] = useState<string>("на 1 месяц");
+  const [packagePrice, setPackagePrice] = useState(0);
 
   const navigate = useNavigate();
   const clickHandler = () => {
@@ -27,6 +28,10 @@ const TsarLanding: FC = () => {
   const onChangeCardValue = (value: string) => {
     setCardValue(value);
     // console.log(value);
+  };
+  const onChangePackagePrice = (value: number) => {
+    setPackagePrice(value);
+    console.log(value);
   };
 
   const getNumberMonths = (valueСhoosePackage: string, numberMonths: number) => {
@@ -53,6 +58,7 @@ const TsarLanding: FC = () => {
           valueСhoosePackage={valueСhoosePackage}
           numberMonths={numberMonths}
           emitValue={onChangeCardValue}
+          emitPackagePrice={onChangePackagePrice}
         />
         <ConsultationsDoctors />
         <Services />
