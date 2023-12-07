@@ -41,14 +41,16 @@ const TsarCard: FC<TsarCardProps> = ({
   const [isHovered, setIsHovered] = useState(false);
   const packagePrice = price * numberMonths;
 
-  const handlerRadio = (value: string) => {
-    emitValue(value);
-    // console.log(value);
-  };
+  // const handlerRadio = (value: string) => {
+  //   emitValue(value);
+  //   // console.log(value);
+  // };
 
   const handlerClick = () => {
     emitPackagePrice(packagePrice);
     // console.log(packagePrice);
+    emitValue(value);
+    // console.log(value);
   };
 
   return (
@@ -59,7 +61,8 @@ const TsarCard: FC<TsarCardProps> = ({
       className={isActive ? styles["card_actived"] : styles["card"]}
       style={{ border: isHovered ? "#155ba1 1px solid" : "#28323c 1px solid" }}
     >
-      <TsarCardRadio value={value} emitValue={handlerRadio} />
+      {/* <TsarCardRadio value={value} emitValue={handlerRadio} /> */}
+      <TsarCardRadio value={value} emitValue={handlerClick} />
 
       <div className={styles["container-content"]}>
         <div className={styles["container-descriptions"]}>

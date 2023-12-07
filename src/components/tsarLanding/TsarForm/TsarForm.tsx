@@ -1,6 +1,5 @@
 import React, { FC, useState } from "react";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
-// import { IOption } from "../../../models/types"; //
 import Checkbox from "../../ui/Checkbox/Checkbox";
 import InputSubmit from "../../ui/inputs/InputSubmit/InputSubmit";
 import InputTitle from "../../ui/inputs/InputTitle/InputTitle";
@@ -40,14 +39,15 @@ const TsarForm: FC<TsarFormProps> = ({ valueСhoosePackage }) => {
     { value: `Расширенный ${valueСhoosePackage}`, label: `Расширенный ${valueСhoosePackage}` },
     { value: `Полный ${valueСhoosePackage}`, label: `Полный ${valueСhoosePackage}` },
   ];
-  // for react-select
-  const getValue = (value: string) => (value ? options.find((option) => option.value === value) : "");
 
   const title = "Продолжая, я соглашаюсь с  ";
   const span = " правилами ";
   const secondTitle = " и ";
   const secondSpan = " программой ";
   const subtitle = "оказания услуг.";
+
+  // for react-select
+  const getValue = (value: string) => (value ? options.find((option) => option.value === value) : "");
 
   const {
     register, // позволяет регистрировать различные поля для форм
@@ -85,7 +85,7 @@ const TsarForm: FC<TsarFormProps> = ({ valueСhoosePackage }) => {
     // Для typescript вы можете использовать ||оператор и добавить к нему строку, чтобы она больше
     // не была нулевой. JSON.parse(localStorage.getItem("formData-renaissance-pension") || "")
   }
-  //   console.log(formData);
+  // console.log(formData);
 
   // для кастомного селекта
   const onClickSelector = () => {
@@ -203,6 +203,7 @@ const TsarForm: FC<TsarFormProps> = ({ valueСhoosePackage }) => {
                 required: "Это поле обязательно к заполнению",
                 onChange: (event) => {
                   setDormancyPhone(false);
+                  console.log(event.target.value); ///////////////////////////////
                 },
                 onBlur: () => {
                   if (watch("phone").length === 0) {

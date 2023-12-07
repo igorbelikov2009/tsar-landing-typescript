@@ -53,6 +53,7 @@ const Pricing: FC<PricingProps> = ({ currentValue, valueСhoosePackage, numberMo
 
   const onChangeCardValue = (value: string) => {
     emitValue(value);
+    // console.log(value);
   };
   const onChangePackagePrice = (packagePrice: number) => {
     emitPackagePrice(packagePrice);

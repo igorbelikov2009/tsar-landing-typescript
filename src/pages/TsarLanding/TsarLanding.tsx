@@ -27,7 +27,7 @@ const TsarLanding: FC = () => {
 
   const onChangeCardValue = (value: string) => {
     setCardValue(value);
-    // console.log(value);
+    console.log(value);
   };
   const onChangePackagePrice = (value: number) => {
     setPackagePrice(value);
