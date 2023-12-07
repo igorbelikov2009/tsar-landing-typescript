@@ -1,29 +1,34 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import RadioTriple from "../../ui/radio/tripleRadio/RadioTriple/RadioTriple";
 import styles from "./СhoosePackage.module.scss";
 import { RadioItemProps } from "../../../models/types";
 
-const СhoosePackage = () => {
-  const [currentValue, setCurrentValue] = useState<string>("На 1 месяц");
-  const [currentIndex, setCurrentIndex] = useState<number>(1);
+interface СhoosePackageProps {
+  emitNumberMonths: (value: string, numberMonths: number) => void;
+}
 
-  const onChangeRadio = (value: string, index: number) => {
+const СhoosePackage: FC<СhoosePackageProps> = ({ emitNumberMonths }) => {
+  const [currentValue, setCurrentValue] = useState<string>("На 1 месяц");
+  const [currentNumberMonths, setcurrentNumberMonths] = useState<number>(1);
+
+  const onChangeRadio = (value: string, numberMonths: number) => {
     setCurrentValue(value);
-    setCurrentIndex(index);
-    console.log(value, index);
+    setcurrentNumberMonths(numberMonths);
+    // console.log("value:" + value, "numberMonths: " + numberMonths);
+    emitNumberMonths(value, numberMonths);
   };
 
   const optionsItems: RadioItemProps[] = [
-    { index: 1, value: "На 1 месяц" },
-    { index: 3, value: "На 3 месяца" },
-    { index: 12, value: "На 12 месяцев" },
+    { numberMonths: 1, value: "На 1 месяц" },
+    { numberMonths: 3, value: "На 3 месяца" },
+    { numberMonths: 12, value: "На 12 месяцев" },
   ];
 
   return (
     <div className={styles["choose-package"]}>
       <RadioTriple
         currentValue={currentValue}
-        index={currentIndex}
+        numberMonths={currentNumberMonths}
         optionsItems={optionsItems}
         emitValue={onChangeRadio}
       />

@@ -2,10 +2,10 @@ import React, { FC } from "react";
 import { RadioLabelProps } from "../../../../../models/types";
 import styles from "./RadioTripleItem.module.scss";
 
-const RadioTripleItem: FC<RadioLabelProps> = ({ value, index, emitValue, isActive }) => {
+const RadioTripleItem: FC<RadioLabelProps> = ({ value, numberMonths, emitValue, isActive }) => {
   const radioHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    emitValue(event.target.value, index);
-    // console.log(event.target.value, index);
+    emitValue(event.target.value, numberMonths);
+    // console.log(event.target.value, numberMonths);
   };
 
   return (

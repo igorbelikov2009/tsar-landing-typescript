@@ -1,30 +1,47 @@
-import React, { useState } from "react";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { IOptionItem } from "../../../models/types";
+import React, { FC, useState } from "react";
+import { useForm, SubmitHandler, Controller } from "react-hook-form";
+// import { IOption } from "../../../models/types"; //
 import Checkbox from "../../ui/Checkbox/Checkbox";
 import InputSubmit from "../../ui/inputs/InputSubmit/InputSubmit";
 import InputTitle from "../../ui/inputs/InputTitle/InputTitle";
 import SelectorAndOptionBlock from "../../ui/select/SelectorAndOptionBlock/SelectorAndOptionBlock";
 import styles from "./TsarForm.module.scss";
+//
+import ReactSelect from "react-select";
+import { IOption, IPackade } from "../../../models/types";
+
+interface TsarFormProps {
+  valueСhoosePackage: string;
+}
 
 type Inputs = {
   userName: string;
   surname: string; // фамилия
   patronymic: string; // отчество
   phone: string;
+  packade: IPackade;
 };
 
-const TsarForm = () => {
+const TsarForm: FC<TsarFormProps> = ({ valueСhoosePackage }) => {
   const [isDormancyUserName, setDormancyUserName] = useState(true);
   const [isDormancySurname, setDormancySurname] = useState(true);
   const [isDormancyPatronymic, setDormancyPatronymic] = useState(true);
   const [isDormancyPhone, setDormancyPhone] = useState(true);
+
   const [isAgree, setAgree] = useState(false);
 
-  const [currentValue, setCurrentValue] = useState("Базовый на 1 месяц");
-  const [, setId] = useState("0");
+  // для кастомного селекта
+  const [currentValue, setCurrentValue] = useState("Выбрать пакет");
   const [isVisible, setIsVisible] = useState(false);
   const [isDarkgray] = useState(false);
+
+  const options: IOption[] = [
+    { value: `Базовый ${valueСhoosePackage}`, label: `Базовый ${valueСhoosePackage}` },
+    { value: `Расширенный ${valueСhoosePackage}`, label: `Расширенный ${valueСhoosePackage}` },
+    { value: `Полный ${valueСhoosePackage}`, label: `Полный ${valueСhoosePackage}` },
+  ];
+  // for react-select
+  const getValue = (value: string) => (value ? options.find((option) => option.value === value) : "");
 
   const title = "Продолжая, я соглашаюсь с  ";
   const span = " правилами ";
@@ -32,18 +49,13 @@ const TsarForm = () => {
   const secondSpan = " программой ";
   const subtitle = "оказания услуг.";
 
-  const optionsItems: IOptionItem[] = [
-    { id: "0", value: "Базовый на 1 месяц", date: "Базовый на 1 месяц" },
-    { id: "1", value: "Расширенный на 1 месяц", date: "Расширенный на 1 месяц" },
-    { id: "2", value: "Полный на 1 месяц", date: "Полный на 1 месяц" },
-  ];
-
   const {
     register, // позволяет регистрировать различные поля для форм
     formState: { errors, isValid }, // объект с ошибками и т.д...
     handleSubmit, // некая обертка над нашим кастомным обработчиком отправки формы, она позволяет делать магии, связанные с валидацией.
     reset, // для очистки полей после отправки формы
     watch, // следит за изменением значения
+    control, // для селектора
   } = useForm<Inputs>({ mode: "all" }); // all / onBlur / onChange / onSubmit / onTouched
 
   let formData = {};
@@ -51,7 +63,7 @@ const TsarForm = () => {
   // наш кастомный обработчик отправки формы
   const onSubmit: SubmitHandler<Inputs> = (formData) => {
     // formData - это набор данных из нашей формы
-    // console.log(formData);
+    console.log(formData);
     localStorage.setItem("formData-renaissance-pension", JSON.stringify(formData));
     reset();
     setDormancyUserName(true);
@@ -75,12 +87,12 @@ const TsarForm = () => {
   }
   //   console.log(formData);
 
+  // для кастомного селекта
   const onClickSelector = () => {
     setIsVisible((prev) => !prev);
   };
-  const onChangeRadio = (value: string, id: string) => {
+  const onChangeRadio = (value: string) => {
     setCurrentValue(value);
-    setId(id);
   };
   const onClickRadio = () => {
     setIsVisible(false);
@@ -223,9 +235,27 @@ const TsarForm = () => {
           </div>
 
           <div className={styles["form__selector-container"]}>
+            <Controller
+              control={control}
+              name="packade.choosePackade"
+              rules={{ required: "Packade is require!" }}
+              render={({ field: { onChange, value }, fieldState: { error } }) => (
+                <div>
+                  <ReactSelect
+                    placeholder="Выбрать пакет"
+                    options={options}
+                    value={getValue(value)}
+                    onChange={(newValue) => onChange((newValue as IOption).value)}
+                  />
+
+                  {error && <div className={styles["my-input__error"]}>{error.message || "Error!"} </div>}
+                </div>
+              )}
+            />
+
             <SelectorAndOptionBlock
               currentValue={currentValue}
-              optionsItems={optionsItems}
+              optionsItems={options}
               isVisible={isVisible}
               isDarkgray={isDarkgray}
               onClickSelector={onClickSelector}

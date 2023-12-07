@@ -10,7 +10,7 @@ interface SelectorAndOptionBlockProps {
   optionsItems: IOptionItem[];
   currentValue: string;
   onClickSelector: () => void;
-  emitOnChangeRadio: (value: string, id: string) => void;
+  emitOnChangeRadio: (value: string) => void;
   emitOnClickRadio: () => void;
 }
 
@@ -28,8 +28,8 @@ const SelectorAndOptionBlock: FC<SelectorAndOptionBlockProps> = ({
     onClickSelector();
   };
 
-  const onChangeRadio = (value: string, id: string) => {
-    emitOnChangeRadio(value, id);
+  const onChangeRadio = (value: string) => {
+    emitOnChangeRadio(value);
   };
   const onClickRadio = () => {
     emitOnClickRadio();

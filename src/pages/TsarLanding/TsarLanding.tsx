@@ -15,6 +15,9 @@ import TsarForm from "../../components/tsarLanding/TsarForm/TsarForm";
 
 const TsarLanding: FC = () => {
   const [cardValue, setCardValue] = useState("Базовый на 1 месяц");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [numberMonths, setNumberMonths] = useState<number>(1);
+  const [valueСhoosePackage, setValueСhoosePackage] = useState<string>("на 1 месяц");
 
   const navigate = useNavigate();
   const clickHandler = () => {
@@ -24,6 +27,12 @@ const TsarLanding: FC = () => {
   const onChangeCardValue = (value: string) => {
     setCardValue(value);
     // console.log(value);
+  };
+
+  const getNumberMonths = (valueСhoosePackage: string, numberMonths: number) => {
+    setNumberMonths(numberMonths);
+    setValueСhoosePackage(valueСhoosePackage.toLowerCase());
+    // console.log(valueСhoosePackage.toLowerCase(), numberMonths);
   };
 
   return (
@@ -38,13 +47,18 @@ const TsarLanding: FC = () => {
         ></TopMenu>
 
         <Horizontal />
-        <СhoosePackage />
-        <Pricing currentValue={cardValue} emitValue={onChangeCardValue} />
+        <СhoosePackage emitNumberMonths={getNumberMonths} />
+        <Pricing
+          currentValue={cardValue}
+          valueСhoosePackage={valueСhoosePackage}
+          numberMonths={numberMonths}
+          emitValue={onChangeCardValue}
+        />
         <ConsultationsDoctors />
         <Services />
         <RenaissanceHealth />
         <HowWorks />
-        <TsarForm />
+        <TsarForm valueСhoosePackage={valueСhoosePackage} />
 
         <Footer />
       </div>

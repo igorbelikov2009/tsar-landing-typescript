@@ -1,11 +1,11 @@
 import React, { FC } from "react";
-import { IOptionItem } from "../../../../models/types";
+import { IOption } from "../../../../models/types";
 import OptionItem from "../OptionItem/OptionItem";
 import styles from "./OptionBlockForSelector.module.scss";
 
 interface OptionBlockForSelectorProps {
-  optionsItems: IOptionItem[];
-  emitValue: (event: string, id: string) => void;
+  optionsItems: IOption[];
+  emitValue: (event: string) => void;
   onClickOptionsBlock: () => void;
   currentValue: string;
 }
@@ -16,8 +16,8 @@ const OptionBlockForSelector: FC<OptionBlockForSelectorProps> = ({
   emitValue,
   onClickOptionsBlock,
 }) => {
-  const onChangeOption = (value: string, id: string) => {
-    emitValue(value, id);
+  const onChangeOption = (value: string) => {
+    emitValue(value);
   };
 
   return (
@@ -26,9 +26,8 @@ const OptionBlockForSelector: FC<OptionBlockForSelectorProps> = ({
         {optionsItems.map((option, index) => (
           <OptionItem
             key={index}
-            date={option.date}
+            label={option.label}
             value={option.value}
-            id={option.id}
             isActive={option.value === currentValue}
             emitValue={onChangeOption}
           />

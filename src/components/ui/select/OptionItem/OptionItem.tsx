@@ -3,21 +3,20 @@ import styles from "./OptionItem.module.scss";
 
 export interface OptionItemProps {
   isActive: boolean;
-  date: string;
+  label: string;
   value: string;
-  id: string;
-  emitValue: (event: string, id: string) => void;
+  emitValue: (event: string) => void;
 }
 
-const OptionItem: FC<OptionItemProps> = ({ isActive, date, value, id, emitValue }) => {
+const OptionItem: FC<OptionItemProps> = ({ isActive, label, value, emitValue }) => {
   const selectorHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    emitValue(event.target.value, id);
+    emitValue(event.target.value);
   };
 
   return (
     <label className={isActive ? styles["option-active"] : styles["option"]}>
-      {date}
-      <input className={styles["input"]} type="radio" value={value} id={id} name="date" onChange={selectorHandler} />
+      {label}
+      <input className={styles["input"]} type="radio" value={value} name="label" onChange={selectorHandler} />
     </label>
   );
 };

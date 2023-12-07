@@ -8,13 +8,15 @@ interface TsarCardProps {
   value: string;
   namePackage: string;
   description: string | null;
-  price: string | null;
+  price: number;
+  currency: string;
   title1: string;
   title2: string;
   title3: string | null;
   title4: string | null;
   textButton: string;
 
+  numberMonths: number;
   emitValue: (value: string) => void;
 }
 
@@ -24,15 +26,19 @@ const TsarCard: FC<TsarCardProps> = ({
   namePackage,
   description,
   price,
+  currency,
   title1,
   title2,
   title3,
   title4,
   textButton,
+  numberMonths,
   emitValue,
 }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isHovered, setIsHovered] = useState(false);
+  const packagePrice = price * numberMonths;
+
   const handlerRadio = (value: string) => {
     emitValue(value);
     // console.log(value);
@@ -54,7 +60,10 @@ const TsarCard: FC<TsarCardProps> = ({
           {description ? <p className={styles["description"]}> {description} </p> : <p></p>}
         </div>
 
-        <h1 className={styles["price"]}> {price} </h1>
+        <div className={styles["container-price"]}>
+          <h1 className={styles["price"]}> {packagePrice} </h1>
+          <h1 className={styles["currency"]}> {currency} </h1>
+        </div>
 
         <div className={styles["container-titles"]}>
           <img className={styles["icon-helper"]} src={iconHelper} alt="iconHelper" />
