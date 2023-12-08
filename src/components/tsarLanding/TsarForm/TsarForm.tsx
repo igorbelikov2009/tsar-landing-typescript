@@ -1,4 +1,5 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useContext } from "react";
+import { UserDataContext } from "../../../context/index";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import Checkbox from "../../ui/Checkbox/Checkbox";
 import InputSubmit from "../../ui/inputs/InputSubmit/InputSubmit";
@@ -22,24 +23,29 @@ type Inputs = {
 };
 
 const TsarForm: FC<TsarFormProps> = ({ valueСhoosePackage }) => {
+  const { userName, setUserName, surname, setSurname, patronymic, setPatronymic, phone, setPhone } =
+    useContext(UserDataContext);
+
+  console.log(userName, surname, patronymic, phone);
   const [isDormancyUserName, setDormancyUserName] = useState(true);
   const [isDormancySurname, setDormancySurname] = useState(true);
   const [isDormancyPatronymic, setDormancyPatronymic] = useState(true);
   const [isDormancyPhone, setDormancyPhone] = useState(true);
-
-  const [isAgree, setAgree] = useState(false);
 
   // для кастомного селекта
   const [currentValue, setCurrentValue] = useState("Выбрать пакет");
   const [isVisible, setIsVisible] = useState(false);
   const [isDarkgray] = useState(false);
 
+  // selector
   const options: IOption[] = [
     { value: `Базовый ${valueСhoosePackage}`, label: `Базовый ${valueСhoosePackage}` },
     { value: `Расширенный ${valueСhoosePackage}`, label: `Расширенный ${valueСhoosePackage}` },
     { value: `Полный ${valueСhoosePackage}`, label: `Полный ${valueСhoosePackage}` },
   ];
 
+  // checkbox
+  const [isAgree, setAgree] = useState(false);
   const title = "Продолжая, я соглашаюсь с  ";
   const span = " правилами ";
   const secondTitle = " и ";
@@ -64,7 +70,7 @@ const TsarForm: FC<TsarFormProps> = ({ valueСhoosePackage }) => {
   const onSubmit: SubmitHandler<Inputs> = (formData) => {
     // formData - это набор данных из нашей формы
     console.log(formData);
-    localStorage.setItem("formData-renaissance-pension", JSON.stringify(formData));
+    localStorage.setItem("userData-renaissance-health", JSON.stringify(formData));
     reset();
     setDormancyUserName(true);
     setDormancySurname(true);
@@ -79,11 +85,11 @@ const TsarForm: FC<TsarFormProps> = ({ valueСhoosePackage }) => {
   };
 
   // Восстановить из localStorage
-  if (localStorage.getItem("formData-renaissance-pension")) {
+  if (localStorage.getItem("userData-renaissance-health")) {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    formData = JSON.parse(localStorage.getItem("formData-renaissance-pension") || "");
+    formData = JSON.parse(localStorage.getItem("userData-renaissance-health") || "");
     // Для typescript вы можете использовать ||оператор и добавить к нему строку, чтобы она больше
-    // не была нулевой. JSON.parse(localStorage.getItem("formData-renaissance-pension") || "")
+    // не была нулевой. JSON.parse(localStorage.getItem("userData-renaissance-health") || "")
   }
   // console.log(formData);
 
@@ -119,6 +125,7 @@ const TsarForm: FC<TsarFormProps> = ({ valueСhoosePackage }) => {
                 required: "Это поле обязательно к заполнению",
                 onChange: (event) => {
                   setDormancySurname(false);
+                  setUserName(event.target.value);
                 },
                 onBlur: () => {
                   if (watch("surname").length === 0) {
@@ -147,6 +154,7 @@ const TsarForm: FC<TsarFormProps> = ({ valueСhoosePackage }) => {
                 required: "Это поле обязательно к заполнению",
                 onChange: (event) => {
                   setDormancyUserName(false);
+                  setSurname(event.target.value);
                 },
                 onBlur: () => {
                   if (watch("userName").length === 0) {
@@ -175,6 +183,7 @@ const TsarForm: FC<TsarFormProps> = ({ valueСhoosePackage }) => {
                 required: "Это поле обязательно к заполнению",
                 onChange: (event) => {
                   setDormancyPatronymic(false);
+                  setPatronymic(event.target.value);
                 },
                 onBlur: () => {
                   if (watch("patronymic").length === 0) {
@@ -203,7 +212,7 @@ const TsarForm: FC<TsarFormProps> = ({ valueСhoosePackage }) => {
                 required: "Это поле обязательно к заполнению",
                 onChange: (event) => {
                   setDormancyPhone(false);
-                  console.log(event.target.value); ///////////////////////////////
+                  setPhone(event.target.value); ///////////////////////////////
                 },
                 onBlur: () => {
                   if (watch("phone").length === 0) {

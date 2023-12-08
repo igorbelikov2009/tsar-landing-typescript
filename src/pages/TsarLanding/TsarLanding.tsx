@@ -1,4 +1,5 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useContext } from "react";
+import { UserDataContext } from "../../context/index";
 import { useNavigate } from "react-router-dom";
 import TopMenu from "../../components/TopBlock/TopMenu/TopMenu";
 import styles from "./TsarLanding.module.scss";
@@ -14,29 +15,31 @@ import Footer from "../../components/Footer/Footer";
 import TsarForm from "../../components/tsarLanding/TsarForm/TsarForm";
 
 const TsarLanding: FC = () => {
-  const [cardValue, setCardValue] = useState("Базовый на 1 месяц");
+  const { selectedPackage, setSelectedPackage, packagePrice, setPackagePrice } = useContext(UserDataContext);
+
+  console.log(selectedPackage, packagePrice);
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [numberMonths, setNumberMonths] = useState<number>(1);
-  const [valueСhoosePackage, setValueСhoosePackage] = useState<string>("на 1 месяц");
-  const [packagePrice, setPackagePrice] = useState(0);
+  const [choosePackage, setСhoosePackage] = useState("на 1 месяц");
 
   const navigate = useNavigate();
   const clickHandler = () => {
     navigate("/telemed");
   };
 
-  const onChangeCardValue = (value: string) => {
-    setCardValue(value);
-    console.log(value);
+  const onChangeSelectedPackage = (value: string) => {
+    setSelectedPackage(value);
+    // console.log(value);
   };
   const onChangePackagePrice = (value: number) => {
     setPackagePrice(value);
-    console.log(value);
+    // console.log(value);
   };
 
   const getNumberMonths = (valueСhoosePackage: string, numberMonths: number) => {
     setNumberMonths(numberMonths);
-    setValueСhoosePackage(valueСhoosePackage.toLowerCase());
+    setСhoosePackage(valueСhoosePackage.toLowerCase());
     // console.log(valueСhoosePackage.toLowerCase(), numberMonths);
   };
 
@@ -54,17 +57,17 @@ const TsarLanding: FC = () => {
         <Horizontal />
         <СhoosePackage emitNumberMonths={getNumberMonths} />
         <Pricing
-          currentValue={cardValue}
-          valueСhoosePackage={valueСhoosePackage}
+          currentValue={selectedPackage}
+          valueСhoosePackage={choosePackage}
           numberMonths={numberMonths}
-          emitValue={onChangeCardValue}
+          emitValue={onChangeSelectedPackage}
           emitPackagePrice={onChangePackagePrice}
         />
         <ConsultationsDoctors />
         <Services />
         <RenaissanceHealth />
         <HowWorks />
-        <TsarForm valueСhoosePackage={valueСhoosePackage} />
+        <TsarForm valueСhoosePackage={choosePackage} />
 
         <Footer />
       </div>

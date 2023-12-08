@@ -14,7 +14,7 @@ interface PricingProps {
 const Pricing: FC<PricingProps> = ({ currentValue, valueСhoosePackage, numberMonths, emitValue, emitPackagePrice }) => {
   const TsarCards: ITsarCardItem[] = [
     {
-      value: `Базовый ${valueСhoosePackage}`,
+      value: `Базовый, ${valueСhoosePackage} `,
       namePackage: "Базовый",
       description: "Самый популярный",
       price: 900,
@@ -26,7 +26,7 @@ const Pricing: FC<PricingProps> = ({ currentValue, valueСhoosePackage, numberMo
       textButton: `Выбрать ${valueСhoosePackage}`,
     },
     {
-      value: "Расширенный на 1 месяц",
+      value: `Расширенный,  ${valueСhoosePackage} `,
       namePackage: "Расширенный",
       description: null,
       price: 5200,
@@ -38,7 +38,7 @@ const Pricing: FC<PricingProps> = ({ currentValue, valueСhoosePackage, numberMo
       textButton: `Выбрать ${valueСhoosePackage}`,
     },
     {
-      value: "Полный на 1 месяц",
+      value: `Полный, ${valueСhoosePackage}  `,
       namePackage: "Полный",
       description: null,
       price: 8200,
