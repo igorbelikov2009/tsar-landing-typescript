@@ -10,6 +10,7 @@ function App() {
   const [phone, setPhone] = useState("");
   const [selectedPackage, setSelectedPackage] = useState<string>("Базовый на 1 месяц");
   const [packagePrice, setPackagePrice] = useState(0);
+  const [isDarkgray, setIsDarkgray] = useState<boolean>(false);
 
   useEffect(() => {
     if (localStorage.getItem("userData-renaissance-health")) {
@@ -35,6 +36,8 @@ function App() {
           setSelectedPackage,
           packagePrice,
           setPackagePrice,
+          isDarkgray,
+          setIsDarkgray,
         }}
       >
         <AppRouter />

@@ -4,11 +4,12 @@ import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import Checkbox from "../../ui/Checkbox/Checkbox";
 import InputSubmit from "../../ui/inputs/InputSubmit/InputSubmit";
 import InputTitle from "../../ui/inputs/InputTitle/InputTitle";
-import SelectorAndOptionBlock from "../../ui/select/SelectorAndOptionBlock/SelectorAndOptionBlock";
+// import SelectorAndOptionBlock from "../../ui/select/SelectorAndOptionBlock/SelectorAndOptionBlock";
 import styles from "./TsarForm.module.scss";
 //
 import ReactSelect from "react-select";
 import { IOption, IPackade } from "../../../models/types";
+import { useNavigate } from "react-router-dom";
 
 interface TsarFormProps {
   valueСhoosePackage: string;
@@ -23,19 +24,24 @@ type Inputs = {
 };
 
 const TsarForm: FC<TsarFormProps> = ({ valueСhoosePackage }) => {
-  const { userName, setUserName, surname, setSurname, patronymic, setPatronymic, phone, setPhone } =
-    useContext(UserDataContext);
+  const {
+    userName,
+    setUserName,
+    surname,
+    setSurname,
+    patronymic,
+    setPatronymic,
+    phone,
+    setPhone,
+    // isDarkgray,
+    setIsDarkgray,
+  } = useContext(UserDataContext);
 
   console.log(userName, surname, patronymic, phone);
   const [isDormancyUserName, setDormancyUserName] = useState(true);
   const [isDormancySurname, setDormancySurname] = useState(true);
   const [isDormancyPatronymic, setDormancyPatronymic] = useState(true);
   const [isDormancyPhone, setDormancyPhone] = useState(true);
-
-  // для кастомного селекта
-  const [currentValue, setCurrentValue] = useState("Выбрать пакет");
-  const [isVisible, setIsVisible] = useState(false);
-  const [isDarkgray] = useState(false);
 
   // selector
   const options: IOption[] = [
@@ -84,6 +90,12 @@ const TsarForm: FC<TsarFormProps> = ({ valueСhoosePackage }) => {
     setAgree(!isAgree);
   };
 
+  const navigate = useNavigate();
+  const clickHandler = () => {
+    navigate("/packageOfServices");
+    setIsDarkgray(false);
+  };
+
   // Восстановить из localStorage
   if (localStorage.getItem("userData-renaissance-health")) {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -92,17 +104,6 @@ const TsarForm: FC<TsarFormProps> = ({ valueСhoosePackage }) => {
     // не была нулевой. JSON.parse(localStorage.getItem("userData-renaissance-health") || "")
   }
   // console.log(formData);
-
-  // для кастомного селекта
-  const onClickSelector = () => {
-    setIsVisible((prev) => !prev);
-  };
-  const onChangeRadio = (value: string) => {
-    setCurrentValue(value);
-  };
-  const onClickRadio = () => {
-    setIsVisible(false);
-  };
 
   return (
     <section className={styles["form"]}>
@@ -262,20 +263,10 @@ const TsarForm: FC<TsarFormProps> = ({ valueСhoosePackage }) => {
                 </div>
               )}
             />
-
-            <SelectorAndOptionBlock
-              currentValue={currentValue}
-              optionsItems={options}
-              isVisible={isVisible}
-              isDarkgray={isDarkgray}
-              onClickSelector={onClickSelector}
-              emitOnChangeRadio={onChangeRadio}
-              emitOnClickRadio={onClickRadio}
-            />
           </div>
 
           <div className={styles["form__button-container"]}>
-            <InputSubmit children="Оформить" disabled={!isValid || !isAgree} />
+            <InputSubmit emitCLick={clickHandler} children="Оформить" disabled={!isValid || !isAgree} />
           </div>
         </form>
       </div>
@@ -284,3 +275,31 @@ const TsarForm: FC<TsarFormProps> = ({ valueСhoosePackage }) => {
 };
 
 export default TsarForm;
+
+//  // для кастомного селекта
+//  const [currentValue, setCurrentValue] = useState("Выбрать пакет");
+//  const [isVisible, setIsVisible] = useState(false);
+//  const [isDarkgray] = useState(false);
+
+// {
+//   /* <SelectorAndOptionBlock
+// currentValue={currentValue}
+// optionsItems={options}
+// isVisible={isVisible}
+// isDarkgray={isDarkgray}
+// onClickSelector={onClickSelector}
+// emitOnChangeRadio={onChangeRadio}
+// emitOnClickRadio={onClickRadio}
+// /> */
+// }
+
+// // для кастомного селекта
+// const onClickSelector = () => {
+//   setIsVisible((prev) => !prev);
+// };
+// const onChangeRadio = (value: string) => {
+//   setCurrentValue(value);
+// };
+// const onClickRadio = () => {
+//   setIsVisible(false);
+// };

@@ -15,9 +15,10 @@ import Footer from "../../components/Footer/Footer";
 import TsarForm from "../../components/tsarLanding/TsarForm/TsarForm";
 
 const TsarLanding: FC = () => {
-  const { selectedPackage, setSelectedPackage, packagePrice, setPackagePrice } = useContext(UserDataContext);
+  const { selectedPackage, setSelectedPackage, packagePrice, setPackagePrice, isDarkgray, setIsDarkgray } =
+    useContext(UserDataContext);
 
-  console.log(selectedPackage, packagePrice);
+  console.log(selectedPackage, packagePrice, isDarkgray);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [numberMonths, setNumberMonths] = useState<number>(1);
@@ -26,6 +27,7 @@ const TsarLanding: FC = () => {
   const navigate = useNavigate();
   const clickHandler = () => {
     navigate("/telemed");
+    setIsDarkgray(true);
   };
 
   const onChangeSelectedPackage = (value: string) => {
@@ -54,7 +56,7 @@ const TsarLanding: FC = () => {
           emitClick={clickHandler}
         ></TopMenu>
 
-        <Horizontal />
+        <Horizontal isDarkgray={isDarkgray} />
         <СhoosePackage emitNumberMonths={getNumberMonths} />
         <Pricing
           currentValue={selectedPackage}

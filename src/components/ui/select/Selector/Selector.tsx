@@ -14,23 +14,15 @@ const Selector: FC<SelectorProps> = ({ value, isVisible, isDarkgray, onClickSele
       <div className={styles["container-title"]}>
         <div className={isDarkgray ? styles["container-darkgray"] : styles["container-gray"]} onClick={onClickSelector}>
           <div className={styles["selector-date"]}>
-            <p className={isDarkgray ? styles["selector-value-white"] : styles["selector-value-gray"]}>{value}</p>
+            <p className={styles["selector-value-white"]}>{value}</p>
           </div>
 
           <div className={styles["icon-container"]}>
-            {isDarkgray ? (
-              <img
-                className={isVisible ? styles["icon-rotate-180"] : styles["icon-rotate-0"]}
-                src="/icons/triple/Arrow Down/Light.svg"
-                alt="Arrow"
-              />
-            ) : (
-              <img
-                className={isVisible ? styles["icon-rotate-180"] : styles["icon-rotate-0"]}
-                src="/icons/triple/Arrow Down/Dark.svg"
-                alt="Arrow"
-              />
-            )}
+            <img
+              className={isVisible ? styles["icon-rotate-180"] : styles["icon-rotate-0"]}
+              src="/icons/triple/Arrow Down/Light.svg"
+              alt="Arrow"
+            />
           </div>
         </div>
 

@@ -21,6 +21,9 @@ interface IUserDataContext {
 
   packagePrice: number;
   setPackagePrice: React.Dispatch<React.SetStateAction<number>>;
+
+  isDarkgray: boolean;
+  setIsDarkgray: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const UserDataContext = createContext<IUserDataContext>({
@@ -38,6 +41,8 @@ export const UserDataContext = createContext<IUserDataContext>({
   setSelectedPackage: () => {},
   packagePrice: 0,
   setPackagePrice: () => {},
+  isDarkgray: false,
+  setIsDarkgray: () => {},
 });
 
 /*

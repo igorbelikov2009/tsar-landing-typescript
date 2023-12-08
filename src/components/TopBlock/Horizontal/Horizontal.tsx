@@ -6,10 +6,13 @@ import logotypeVector from "../../../assets/logotypes/logotypeVector.svg";
 import SelectorAndOptionBlock from "../../ui/select/SelectorAndOptionBlock/SelectorAndOptionBlock";
 import { IOption } from "../../../models/types";
 
-const Horizontal: FC = () => {
+interface HorizontalProps {
+  isDarkgray: boolean;
+}
+
+const Horizontal: FC<HorizontalProps> = ({ isDarkgray }) => {
   const [currentValue, setCurrentValue] = useState("Москва");
   const [isVisible, setIsVisible] = useState(false);
-  const [isDarkgray] = useState(true);
 
   const optionsItems: IOption[] = [
     { value: "Москва", label: "Москва" },
