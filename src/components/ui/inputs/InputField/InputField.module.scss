@@ -1,4 +1,4 @@
-.my-input__field {
+.my-input__field-24px {
   width: 100%;
   font-size: 16px;
   line-height: 23px;
@@ -20,11 +20,55 @@
   }
 }
 
-.my-input__field_invalid {
+.my-input__field_invalid-24px {
   width: 100%;
   font-size: 16px;
   line-height: 23px;
   padding: 24px 0 8px;
+  color: #28323c;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  border-bottom: 1px solid #f20707;
+
+  &:hover {
+    line-height: 22px;
+    border-bottom: 2px solid #50287d;
+  }
+
+  &:focus {
+    line-height: 22px;
+    border-bottom: 2px solid #50287d;
+  }
+}
+
+.my-input__field-16px {
+  width: 100%;
+  font-size: 16px;
+  line-height: 23px;
+  padding: 16px 0 8px;
+  color: #28323c;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  border-bottom: 1px solid #b5bdc8;
+
+  &:hover {
+    line-height: 22px;
+    border-bottom: 2px solid #50287d;
+  }
+
+  &:focus {
+    line-height: 22px;
+    border-bottom: 2px solid #50287d;
+  }
+}
+
+.my-input__field_invalid-16px {
+  width: 100%;
+  font-size: 16px;
+  line-height: 23px;
+  padding: 16px 0 8px;
   color: #28323c;
   box-sizing: border-box;
   cursor: pointer;

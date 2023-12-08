@@ -19,6 +19,8 @@ interface MyInputProps {
   isRequiredError: boolean; // false, начинает работать при условии dirty = true
   isValidationError: boolean; // Ошибка проверки
   emitValue: (value: string) => void;
+
+  isHeight48px: boolean;
 }
 
 const MyInput: FC<MyInputProps> = ({
@@ -31,6 +33,8 @@ const MyInput: FC<MyInputProps> = ({
   isRequiredError, // с хуком не надо
   isValidationError, // с хуком не надо
   emitValue, // с хуком не надо
+
+  isHeight48px,
 }) => {
   const [isDormancy, setDormancy] = useState(true);
   const [isError, setError] = useState(false);
@@ -63,6 +67,7 @@ const MyInput: FC<MyInputProps> = ({
         emitFocus={onFocus}
         emitBlur={onBlur}
         isError={isError}
+        isHeight48px={isHeight48px}
       />
 
       {isRequiredError && (

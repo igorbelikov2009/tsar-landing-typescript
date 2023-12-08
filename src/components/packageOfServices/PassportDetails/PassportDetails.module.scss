@@ -1,0 +1,120 @@
+.passport-details {
+  width: 100%;
+  max-width: 888px;
+  padding: 48px 12px;
+  background-color: #f3f5f7;
+
+  @media screen and (min-width: 576px) {
+    padding: 48px 76px;
+  }
+}
+
+.container-heading {
+  width: 100%;
+  max-width: 736px;
+  height: 48px;
+  margin-bottom: 48px;
+}
+
+.heading {
+  font-size: 34px;
+  line-height: 48px;
+  font-weight: 400;
+  color: #28323c;
+}
+
+.data-container {
+  width: 100%;
+  max-width: 736px;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.container-passport-series {
+  width: 128px;
+  padding-right: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-passport-number {
+  width: 280px;
+  padding-right: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-date-of-birth {
+  width: 256px;
+  padding-right: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container-address {
+  width: 100%;
+  max-width: 736px;
+  height: 48px;
+}
+
+.my-input {
+  &__label {
+    width: 100%;
+    //   padding-bottom: 20px;
+    position: relative;
+  }
+
+  &__error {
+    display: block;
+    position: absolute;
+    top: 67px;
+    top: 56px;
+    left: 0;
+    font-size: 12px;
+    line-height: 12px;
+    color: red;
+  }
+}
+
+.my-input__field {
+  width: 100%;
+  font-size: 16px;
+  line-height: 23px;
+  padding: 16px 0 8px;
+  color: #28323c;
+  border-bottom: 1px solid #b5bdc8;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  &:hover {
+    line-height: 22px;
+    border-bottom: 2px solid #50287d;
+  }
+
+  &:focus {
+    line-height: 22px;
+    border-bottom: 2px solid #50287d;
+  }
+}
+
+.my-input__field_invalid {
+  width: 100%;
+  font-size: 16px;
+  line-height: 23px;
+  padding: 16px 0 8px;
+  color: #28323c;
+  border-bottom: 1px solid red;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  &:hover {
+    line-height: 22px;
+    border-bottom: 2px solid #50287d;
+  }
+
+  &:focus {
+    line-height: 22px;
+    border-bottom: 2px solid #50287d;
+  }
+}

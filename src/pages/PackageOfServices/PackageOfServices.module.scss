@@ -6,4 +6,12 @@
   padding: 0px;
   margin-bottom: 48px;
   top: 0px;
+
+  &__container {
+    width: 100%;
+    max-width: 944px;
+    height: 1705px; ///////////////////////////////
+    margin: 0 auto;
+    padding: 0 28px;
+  }
 }

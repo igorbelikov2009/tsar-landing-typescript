@@ -15,10 +15,22 @@ import Footer from "../../components/Footer/Footer";
 import TsarForm from "../../components/tsarLanding/TsarForm/TsarForm";
 
 const TsarLanding: FC = () => {
-  const { selectedPackage, setSelectedPackage, packagePrice, setPackagePrice, isDarkgray, setIsDarkgray } =
-    useContext(UserDataContext);
+  // const { selectedPackage, setSelectedPackage, packagePrice, setPackagePrice, isDarkgray, setIsDarkgray } =
+  //   useContext(UserDataContext);
+  const {
+    userName,
+    surname,
+    patronymic,
+    phone,
+    selectedPackage,
+    setSelectedPackage,
+    packagePrice,
+    setPackagePrice,
+    isDarkgray,
+    setIsDarkgray,
+  } = useContext(UserDataContext);
 
-  console.log(selectedPackage, packagePrice, isDarkgray);
+  console.log(userName, surname, patronymic, phone, selectedPackage, packagePrice);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [numberMonths, setNumberMonths] = useState<number>(1);

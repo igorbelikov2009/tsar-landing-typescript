@@ -8,7 +8,8 @@ function App() {
   const [surname, setSurname] = useState("");
   const [patronymic, setPatronymic] = useState("");
   const [phone, setPhone] = useState("");
-  const [selectedPackage, setSelectedPackage] = useState<string>("Базовый на 1 месяц");
+  // const [selectedPackage, setSelectedPackage] = useState<string>("Базовый на 1 месяц");
+  const [selectedPackage, setSelectedPackage] = useState<string>("");
   const [packagePrice, setPackagePrice] = useState(0);
   const [isDarkgray, setIsDarkgray] = useState<boolean>(false);
 

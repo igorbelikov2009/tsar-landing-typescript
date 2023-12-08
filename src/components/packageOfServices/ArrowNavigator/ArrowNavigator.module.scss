@@ -1,0 +1,19 @@
+.arrow-navigator {
+  width: 100%;
+  max-width: 100px;
+  padding-top: 24px;
+  padding-bottom: 48px;
+}
+
+.container-arrow {
+  width: 48px;
+  height: 48px;
+  display: flex;
+}
+
+.arrow {
+  width: 24px;
+  height: 24px;
+  margin: auto;
+  transform: rotate(90deg);
+}

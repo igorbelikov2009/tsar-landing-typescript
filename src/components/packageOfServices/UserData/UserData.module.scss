@@ -1,0 +1,50 @@
+.user-data {
+  width: 100%;
+  max-width: 432px;
+  height: 96px;
+  margin-bottom: 72px;
+  //   background-color: #f3f5f7; ///////////////////////
+
+  &__container-name {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 24px;
+  }
+
+  &__name {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #28323c;
+    margin-right: 6px;
+  }
+
+  &__phone {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #78828c;
+  }
+
+  &__container-selected-package {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &__selected-package {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #78828c;
+    margin-right: 12px;
+  }
+
+  &__amount-to-paid {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #78828c;
+  }
+}
