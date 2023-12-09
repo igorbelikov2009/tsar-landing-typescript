@@ -10,6 +10,7 @@ import styles from "./TsarForm.module.scss";
 import ReactSelect from "react-select";
 import { IOption, IPackade } from "../../../models/types";
 import { useNavigate } from "react-router-dom";
+import SelectorOptions from "../../ui/select/SelectorOptions/SelectorOptions";
 
 interface TsarFormProps {
   valueСhoosePackage: string;
@@ -104,6 +105,20 @@ const TsarForm: FC<TsarFormProps> = ({ valueСhoosePackage }) => {
     // не была нулевой. JSON.parse(localStorage.getItem("userData-renaissance-health") || "")
   }
   // console.log(formData);
+
+  // для кастомного селекта
+  const [currentValue, setCurrentValue] = useState("Выбрать пакет");
+  const [isVisible, setIsVisible] = useState(false);
+
+  const onClickSelector = () => {
+    setIsVisible((prev) => !prev);
+  };
+  const onChangeRadio = (value: string) => {
+    setCurrentValue(value);
+  };
+  const onClickRadio = () => {
+    setIsVisible(false);
+  };
 
   return (
     <section className={styles["form"]}>
@@ -262,6 +277,17 @@ const TsarForm: FC<TsarFormProps> = ({ valueСhoosePackage }) => {
                   {error && <div className={styles["my-input__error"]}>{error.message || "Error!"} </div>}
                 </div>
               )}
+            />
+          </div>
+
+          <div className={styles["form__selector-container"]}>
+            <SelectorOptions
+              currentValue={currentValue}
+              optionsItems={options}
+              isVisible={isVisible}
+              onClickSelector={onClickSelector}
+              emitOnChangeRadio={onChangeRadio}
+              emitOnClickRadio={onClickRadio}
             />
           </div>
 

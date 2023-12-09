@@ -19,6 +19,12 @@ const PassportDetails = () => {
   const [isDormancyDateOfBirth, setDormancyDateOfBirth] = useState(true);
   const [isDormancyAddress, setDormancyAddress] = useState(true);
 
+  const [seriesPassport, setSeriesPassport] = useState("");
+  const [numberPassport, setNumberPassport] = useState("");
+  const [dateOfBirtPassporth, setDateOfBirthPassport] = useState("");
+  const [addressPassport, setAddressPassport] = useState("");
+  console.log(seriesPassport, numberPassport, dateOfBirtPassporth, addressPassport);
+
   const {
     register, // позволяет регистрировать различные поля для форм
     formState: { errors, isValid }, // объект с ошибками и т.д...
@@ -60,7 +66,7 @@ const PassportDetails = () => {
                 required: "Это поле обязательно к заполнению",
                 onChange: (event) => {
                   setDormancyPassportSeries(false);
-                  //   setpassportNumber(event.target.value);
+                  setSeriesPassport(event.target.value);
                 },
                 onBlur: () => {
                   if (watch("passportSeries").length === 0) {
@@ -95,7 +101,7 @@ const PassportDetails = () => {
                 required: "Это поле обязательно к заполнению",
                 onChange: (event) => {
                   setDormancyPassportNumber(false);
-                  //   setSurname(event.target.value);
+                  setNumberPassport(event.target.value);
                 },
                 onBlur: () => {
                   if (watch("passportNumber").length === 0) {
@@ -130,7 +136,7 @@ const PassportDetails = () => {
                 required: "Это поле обязательно к заполнению",
                 onChange: (event) => {
                   setDormancyDateOfBirth(false);
-                  //   setSurname(event.target.value);
+                  setDateOfBirthPassport(event.target.value);
                 },
                 onBlur: () => {
                   if (watch("dateOfBirth").length === 0) {
@@ -166,7 +172,7 @@ const PassportDetails = () => {
               required: "Это поле обязательно к заполнению",
               onChange: (event) => {
                 setDormancyAddress(false);
-                //   setaddress(event.target.value); ///////////////////////////////
+                setAddressPassport(event.target.value);
               },
               onBlur: () => {
                 if (watch("address").length === 0) {

@@ -1,0 +1,220 @@
+.container-selector-options {
+  width: 100%;
+  position: relative;
+}
+
+// selector__
+.selector {
+  display: block;
+  position: relative;
+  margin-bottom: 24px;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 48px;
+  }
+
+  &__container-title {
+    max-width: 546px;
+    position: relative;
+  }
+
+  &__border-white {
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+    border: 1px solid #fff;
+  }
+
+  &__border-gray {
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+    border: 1px solid #e4e4e4;
+  }
+
+  &__container-white {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.36s ease;
+
+    background-color: #fff;
+  }
+
+  &__container-gray {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.36s ease;
+
+    background-color: #d0f0f6d1;
+  }
+
+  &__selector-date {
+    font-size: 14px;
+    line-height: 18px;
+    color: #28323c;
+    font-weight: 400;
+    padding-left: 8px;
+  }
+
+  &__icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 8px;
+  }
+
+  &__icon-rotate-0 {
+    width: 18px;
+    height: 18px;
+    flex: none;
+    cursor: pointer;
+    transition: transform 0.28s;
+    transition-property: transform;
+    transition-duration: 0.28s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+
+    transform: scaleY(0.7) rotate(0deg);
+  }
+
+  &__icon-rotate-180 {
+    width: 18px;
+    height: 18px;
+    flex: none;
+    cursor: pointer;
+    transition: transform 0.28s;
+    transition-property: transform;
+    transition-duration: 0.28s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+
+    transform: scaleY(0.7) rotate(180deg);
+  }
+
+  &__white-line-height-1 {
+    width: calc(100% - 16px);
+    background-color: #fff;
+    position: absolute;
+    bottom: 6px;
+    left: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 1px;
+    transition: width 0.7s ease-out;
+  }
+
+  &__white-line-height-2 {
+    width: calc(100% - 16px);
+    background-color: #fff;
+    position: absolute;
+    bottom: 6px;
+    left: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 2px;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &__black-line-width-50 {
+    background-color: black;
+    height: 1px;
+    width: 50%;
+    transition: width 0.7s ease-out;
+  }
+
+  &__black-line-width-0 {
+    background-color: black;
+    height: 2px;
+    width: 0;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &__selector-value {
+    display: block;
+    padding: 18px 12px;
+    font-size: 14px;
+    line-height: 18px;
+    color: #28323c;
+    font-weight: 400;
+  }
+}
+// selector__
+
+//options-block
+.options-block {
+  margin: 0 auto;
+  box-shadow: 1px 3px 5px 2px #d7d7d7;
+  overflow-y: hidden;
+
+  &_hide {
+    width: 100%;
+    transition: all 0.28s;
+    visibility: hidden;
+    position: absolute;
+    left: 0px;
+    top: 62px;
+    transform: scale(0.1);
+  }
+
+  &_show {
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    top: 62px;
+    transition: all 0.28s;
+    visibility: visible;
+    transform: scale(1);
+  }
+
+  &__scrollable-block {
+    height: 224px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+  }
+}
+//options-block
+
+.option {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  padding: 19px 16px;
+  font-size: 14px;
+  line-height: 18px;
+  transition: color 0.3s, background 0.4s;
+  font-weight: 400;
+  cursor: pointer;
+
+  background-color: #fff;
+  color: #28323c;
+}
+
+.option-active {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  padding: 18px 16px;
+  font-size: 16px;
+  line-height: 18px;
+  transition: color 0.3s, background 0.4s;
+  font-weight: 400;
+  cursor: pointer;
+
+  background-color: #50287d;
+  color: white;
+}
+
+.input {
+  display: none;
+}
