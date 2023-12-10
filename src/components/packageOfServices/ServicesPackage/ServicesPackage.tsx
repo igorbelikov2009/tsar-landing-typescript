@@ -62,11 +62,9 @@ const ServicesPackage = () => {
       <div className={styles["services-package__container-heading"]}>
         <h1 className={styles["services-package__heading"]}> Пакет услуг </h1>
       </div>
-
       <div className={styles["services-package__container-checkbox"]}>
         <Checkbox isCircle={true} checkedValue={isAgreeForMe} toogleChecked={toogleForMe} title="Для меня" />
       </div>
-
       <div className={styles["services-package__container-checkbox"]}>
         <Checkbox
           isCircle={true}
@@ -76,73 +74,143 @@ const ServicesPackage = () => {
         />
       </div>
 
-      <div className={styles["services-package__container-data-another-person"]}>
-        <div className={styles["services-package__container-for-name"]}>
-          <label className={styles["my-input__label"]}>
-            <InputTitle title="Фамилия Имя Отчество" isDormancy={isDormancyDataName} />
+      {isAgreeAnotherPerson ? (
+        <div className={styles["services-package__container-data-another-person-show"]}>
+          <div className={styles["services-package__container-for-name"]}>
+            <label className={styles["my-input__label"]}>
+              <InputTitle title="Фамилия Имя Отчество" isDormancy={isDormancyDataName} />
 
-            <input
-              className={errors?.dataName ? styles["my-input__field_invalid"] : styles["my-input__field"]}
-              type="dataName"
-              {...register("dataName", {
-                required: "Это поле обязательно к заполнению",
-                onChange: (event) => {
-                  setDormancyDataName(false);
-                  setNameData(event.target.value);
-                },
-                onBlur: () => {
-                  if (watch("dataName").length === 0) {
-                    setDormancyDataName(true);
-                  }
-                },
+              <input
+                className={errors?.dataName ? styles["my-input__field_invalid"] : styles["my-input__field"]}
+                type="dataName"
+                {...register("dataName", {
+                  required: "Это поле обязательно к заполнению",
+                  onChange: (event) => {
+                    setDormancyDataName(false);
+                    setNameData(event.target.value);
+                  },
+                  onBlur: () => {
+                    if (watch("dataName").length === 0) {
+                      setDormancyDataName(true);
+                    }
+                  },
 
-                minLength: {
-                  value: 10,
-                  message: "Минимум 10 символов",
-                },
-              })}
-            />
-            {errors?.dataName && (
-              <span className={styles["my-input__error"]}>{errors?.dataName?.message || "Error!"} </span>
-            )}
-          </label>
+                  minLength: {
+                    value: 10,
+                    message: "Минимум 10 символов",
+                  },
+                })}
+              />
+              {errors?.dataName && (
+                <span className={styles["my-input__error"]}>{errors?.dataName?.message || "Error!"} </span>
+              )}
+            </label>
+          </div>
+
+          <div className={styles["services-package__container-for-date-birth"]}>
+            <label className={styles["my-input__label"]}>
+              <InputTitle title="Дата рождения" isDormancy={isDormancyDateOfBirth} />
+
+              <input
+                className={errors?.dateOfBirth ? styles["my-input__field_invalid"] : styles["my-input__field"]}
+                type="text"
+                {...register("dateOfBirth", {
+                  required: "Это поле обязательно к заполнению",
+                  onChange: (event) => {
+                    setDormancyDateOfBirth(false);
+                    setDateOfBirthPassport(event.target.value);
+                  },
+                  onBlur: () => {
+                    if (watch("dateOfBirth").length === 0) {
+                      setDormancyDateOfBirth(true);
+                    }
+                  },
+                  minLength: {
+                    value: 10,
+                    message: "Минимум 10 символов",
+                  },
+                  maxLength: {
+                    value: 10,
+                    message: "Минимум 10 символов",
+                  },
+                })}
+              />
+
+              {errors?.dateOfBirth && (
+                <span className={styles["my-input__error"]}>{errors?.dateOfBirth?.message || "Error!"}</span>
+              )}
+            </label>
+          </div>
         </div>
+      ) : (
+        <div className={styles["services-package__container-data-another-person-hide"]}>
+          <div className={styles["services-package__container-for-name"]}>
+            <label className={styles["my-input__label"]}>
+              <InputTitle title="Фамилия Имя Отчество" isDormancy={isDormancyDataName} />
 
-        <div className={styles["services-package__container-for-date-birth"]}>
-          <label className={styles["my-input__label"]}>
-            <InputTitle title="Дата рождения" isDormancy={isDormancyDateOfBirth} />
+              <input
+                className={errors?.dataName ? styles["my-input__field_invalid"] : styles["my-input__field"]}
+                type="dataName"
+                {...register("dataName", {
+                  required: "Это поле обязательно к заполнению",
+                  onChange: (event) => {
+                    setDormancyDataName(false);
+                    setNameData(event.target.value);
+                  },
+                  onBlur: () => {
+                    if (watch("dataName").length === 0) {
+                      setDormancyDataName(true);
+                    }
+                  },
 
-            <input
-              className={errors?.dateOfBirth ? styles["my-input__field_invalid"] : styles["my-input__field"]}
-              type="text"
-              {...register("dateOfBirth", {
-                required: "Это поле обязательно к заполнению",
-                onChange: (event) => {
-                  setDormancyDateOfBirth(false);
-                  setDateOfBirthPassport(event.target.value);
-                },
-                onBlur: () => {
-                  if (watch("dateOfBirth").length === 0) {
-                    setDormancyDateOfBirth(true);
-                  }
-                },
-                minLength: {
-                  value: 10,
-                  message: "Минимум 10 символов",
-                },
-                maxLength: {
-                  value: 10,
-                  message: "Минимум 10 символов",
-                },
-              })}
-            />
+                  minLength: {
+                    value: 10,
+                    message: "Минимум 10 символов",
+                  },
+                })}
+              />
+              {errors?.dataName && (
+                <span className={styles["my-input__error"]}>{errors?.dataName?.message || "Error!"} </span>
+              )}
+            </label>
+          </div>
 
-            {errors?.dateOfBirth && (
-              <span className={styles["my-input__error"]}>{errors?.dateOfBirth?.message || "Error!"}</span>
-            )}
-          </label>
+          <div className={styles["services-package__container-for-date-birth"]}>
+            <label className={styles["my-input__label"]}>
+              <InputTitle title="Дата рождения" isDormancy={isDormancyDateOfBirth} />
+
+              <input
+                className={errors?.dateOfBirth ? styles["my-input__field_invalid"] : styles["my-input__field"]}
+                type="text"
+                {...register("dateOfBirth", {
+                  required: "Это поле обязательно к заполнению",
+                  onChange: (event) => {
+                    setDormancyDateOfBirth(false);
+                    setDateOfBirthPassport(event.target.value);
+                  },
+                  onBlur: () => {
+                    if (watch("dateOfBirth").length === 0) {
+                      setDormancyDateOfBirth(true);
+                    }
+                  },
+                  minLength: {
+                    value: 10,
+                    message: "Минимум 10 символов",
+                  },
+                  maxLength: {
+                    value: 10,
+                    message: "Минимум 10 символов",
+                  },
+                })}
+              />
+
+              {errors?.dateOfBirth && (
+                <span className={styles["my-input__error"]}>{errors?.dateOfBirth?.message || "Error!"}</span>
+              )}
+            </label>
+          </div>
         </div>
-      </div>
+      )}
 
       <div className={styles["services-package__container-checkbox"]}>
         <Checkbox
@@ -152,6 +220,15 @@ const ServicesPackage = () => {
           title="Всей семье"
         />
       </div>
+
+      <div className={styles["services-package__container-for-family-children"]}>
+        <p className={styles["services-package__family-children"]}>
+          Супруг, супруга, дети до 18 лет{" "}
+          <span className={styles["services-package__family-children-span"]}> + 1000 ₽</span>
+        </p>
+      </div>
+
+      <div className={styles["services-package__line"]}></div>
     </div>
   );
 };

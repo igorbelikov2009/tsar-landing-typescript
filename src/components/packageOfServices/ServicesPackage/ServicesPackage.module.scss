@@ -30,11 +30,24 @@
     height: 48px;
   }
 
-  &__container-data-another-person {
+  &__container-data-another-person-hide {
+    width: 100%;
+    max-width: 468px;
+    margin-bottom: 0px;
+    margin-left: 40px;
+    height: 0;
+    transform: scaleY(0.01);
+    transition: all 0.3s;
+  }
+
+  &__container-data-another-person-show {
     width: 100%;
     max-width: 468px;
     margin-bottom: 48px;
     margin-left: 40px;
+    height: 120px;
+    transform: scaleY(1);
+    transition: all 0.3s;
   }
 
   &__container-for-name {
@@ -47,6 +60,32 @@
     width: 164px;
     height: 48px;
     margin-bottom: 24px;
+  }
+
+  &__container-for-family-children {
+    width: 100%;
+    max-width: 468px;
+    margin-bottom: 48px;
+    margin-left: 40px;
+  }
+
+  &__family-children {
+    color: #96a0aa;
+    font-size: 13px;
+    line-height: 24px;
+  }
+
+  &__family-children-span {
+    display: block;
+    color: #96a0aa;
+    font-size: 13px;
+    line-height: 24px;
+  }
+
+  &__line {
+    width: 736px;
+    height: 1px;
+    background-color: #d2dce6;
   }
 }
 
