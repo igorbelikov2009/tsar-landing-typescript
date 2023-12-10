@@ -4,42 +4,42 @@ import OptionItem from "../OptionItem/OptionItem";
 import styles from "./SelectorOptions.module.scss";
 
 interface SelectorOptionsProps {
-  //   isActive: boolean;
   isVisible: boolean;
   optionsItems: IOption[];
-  //   label: string;
   currentValue: string;
   onClickSelector: () => void;
-  emitOnChangeRadio: (value: string) => void;
   emitOnClickRadio: () => void;
+  //   emitValue: (event: string) => void;
+  emitValue: (value: string) => void;
 }
 
 const SelectorOptions: FC<SelectorOptionsProps> = ({
-  //   isActive,
   isVisible,
   optionsItems,
-  //   label,
   currentValue,
   onClickSelector,
-  emitOnChangeRadio,
   emitOnClickRadio,
+  emitValue,
 }) => {
-  //
   const onClickContainerSelector = () => {
     onClickSelector();
-  };
-
-  //   const onChangeRadio = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //     emitOnChangeRadio(event.target.value);
-  //   };
-
-  const onChangeRadio = (value: string) => {
-    emitOnChangeRadio(value);
   };
 
   const onClickOptionsRadio = () => {
     emitOnClickRadio();
   };
+
+  const onChangeRadio = (value: string) => {
+    emitValue(value);
+  };
+
+  // const onChangeRadio = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   emitValue(event.target.value);
+  //   console.log(event.target.value);
+  //   console.log("OK");
+  // };
+
+  //////////////////////////////
 
   return (
     <div className={styles["container-selector-options"]}>
@@ -89,10 +89,11 @@ const SelectorOptions: FC<SelectorOptionsProps> = ({
                 isActive={option.value === currentValue}
                 emitValue={onChangeRadio}
               />
-              //   <div key={index} className={isActive ? styles["option-active"] : styles["option"]}>
-              //     {option.label}
-              //     <input className={styles["input"]} type="radio" value={option.value} onChange={onChangeRadio} />
-              //   </div>
+
+              // <div key={index} className={isActive ? styles["option-active"] : styles["option"]}>
+              //   {option.label}
+              //   <input className={styles["input"]} type="radio" value={option.value} onChange={onChangeRadio} />
+              // </div>
             ))}
           </div>
         </div>

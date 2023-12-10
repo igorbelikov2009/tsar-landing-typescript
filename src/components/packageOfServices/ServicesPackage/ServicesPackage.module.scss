@@ -1,7 +1,7 @@
-// passport-details__
-.passport-details {
+.services-package {
   width: 100%;
   max-width: 888px;
+  height: 1000px; /////////////////
   padding: 48px 12px;
   background-color: #f3f5f7;
   margin-bottom: 48px;
@@ -12,7 +12,7 @@
 
   &__container-heading {
     width: 100%;
-    max-width: 736px;
+    max-width: 432px;
     height: 48px;
     margin-bottom: 48px;
   }
@@ -24,39 +24,29 @@
     color: #28323c;
   }
 
-  &__data-container {
+  &__container-checkbox {
     width: 100%;
-    max-width: 736px;
-    display: flex;
-    flex-wrap: wrap;
+    max-width: 488px;
+    height: 48px;
+  }
+
+  &__container-data-another-person {
+    width: 100%;
+    max-width: 468px;
+    margin-bottom: 48px;
+    margin-left: 40px;
+  }
+
+  &__container-for-name {
+    width: 100%;
+    height: 48px;
     margin-bottom: 24px;
   }
 
-  &__container-passport-series {
-    width: 128px;
-    padding-right: 24px;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &__container-passport-number {
-    width: 280px;
-    padding-right: 24px;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &__container-date-of-birth {
-    width: 256px;
-    padding-right: 24px;
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &__container-address {
-    width: 100%;
-    max-width: 736px;
+  &__container-for-date-birth {
+    width: 164px;
     height: 48px;
+    margin-bottom: 24px;
   }
 }
 

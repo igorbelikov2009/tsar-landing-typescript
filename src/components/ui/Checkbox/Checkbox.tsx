@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import styles from "./Checkbox.module.scss";
 
 interface CheckboxProps {
+  isCircle?: boolean;
   checkedValue: boolean;
   toogleChecked: () => void;
   title?: string;
@@ -12,6 +13,7 @@ interface CheckboxProps {
 }
 
 const Checkbox: FC<CheckboxProps> = ({
+  isCircle,
   checkedValue,
   toogleChecked,
   title,
@@ -26,9 +28,16 @@ const Checkbox: FC<CheckboxProps> = ({
 
   return (
     <label role="checkbox" aria-checked={true} aria-labelledby="foo" className={styles["checkbox"]}>
-      <span className={styles["checkbox__checker"]} />
-
-      <div className={checkedValue ? styles["checkbox__switch_visible"] : styles["checkbox__switch_invisible"]} />
+      <span className={isCircle ? styles["checkbox__checker_circle"] : styles["checkbox__checker"]} />
+      {isCircle ? (
+        <div
+          className={
+            checkedValue ? styles["checkbox__switch_visible-circle"] : styles["checkbox__switch_invisible-circle"]
+          }
+        />
+      ) : (
+        <div className={checkedValue ? styles["checkbox__switch_visible"] : styles["checkbox__switch_invisible"]} />
+      )}
 
       <input type="checkbox" checked={checkedValue} onChange={checkboxHandler} className={styles["checkbox__input"]} />
 

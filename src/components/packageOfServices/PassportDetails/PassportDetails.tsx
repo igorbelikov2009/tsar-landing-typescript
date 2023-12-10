@@ -23,7 +23,7 @@ const PassportDetails = () => {
   const [numberPassport, setNumberPassport] = useState("");
   const [dateOfBirtPassporth, setDateOfBirthPassport] = useState("");
   const [addressPassport, setAddressPassport] = useState("");
-  console.log(seriesPassport, numberPassport, dateOfBirtPassporth, addressPassport);
+  // console.log(seriesPassport, numberPassport, dateOfBirtPassporth, addressPassport);
 
   const {
     register, // позволяет регистрировать различные поля для форм
@@ -50,12 +50,12 @@ const PassportDetails = () => {
 
   return (
     <form className={styles["passport-details"]} onSubmit={handleSubmit(onSubmit)}>
-      <div className={styles["container-heading"]}>
-        <h1 className={styles["heading"]}> Паспорт </h1>
+      <div className={styles["passport-details__container-heading"]}>
+        <h1 className={styles["passport-details__heading"]}> Паспорт </h1>
       </div>
 
-      <div className={styles["data-container"]}>
-        <div className={styles["container-passport-series"]}>
+      <div className={styles["passport-details__data-container"]}>
+        <div className={styles["passport-details__container-passport-series"]}>
           <label className={styles["my-input__label"]}>
             <InputTitle title="серия" isDormancy={isDormancyPassportSeries} />
 
@@ -90,7 +90,7 @@ const PassportDetails = () => {
           </label>
         </div>
 
-        <div className={styles["container-passport-number"]}>
+        <div className={styles["passport-details__container-passport-number"]}>
           <label className={styles["my-input__label"]}>
             <InputTitle title="номер" isDormancy={isDormancyPassportNumber} />
 
@@ -125,7 +125,7 @@ const PassportDetails = () => {
           </label>
         </div>
 
-        <div className={styles["container-date-of-birth"]}>
+        <div className={styles["passport-details__container-date-of-birth"]}>
           <label className={styles["my-input__label"]}>
             <InputTitle title="Дата рождения" isDormancy={isDormancyDateOfBirth} />
 
@@ -161,7 +161,7 @@ const PassportDetails = () => {
         </div>
       </div>
 
-      <div className={styles["container-address"]}>
+      <div className={styles["passport-details__container-address"]}>
         <label className={styles["my-input__label"]}>
           <InputTitle title="Адрес регистрации" isDormancy={isDormancyAddress} />
 

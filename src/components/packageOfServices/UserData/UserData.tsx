@@ -5,7 +5,7 @@ import styles from "./UserData.module.scss";
 const UserData = () => {
   const { userName, surname, patronymic, phone, selectedPackage, packagePrice } = useContext(UserDataContext);
 
-  console.log(userName, surname, patronymic, phone, selectedPackage, packagePrice);
+  // console.log(userName, surname, patronymic, phone, selectedPackage, packagePrice);
 
   return (
     <div className={styles["user-data"]}>

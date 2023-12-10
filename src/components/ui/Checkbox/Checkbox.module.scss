@@ -14,6 +14,7 @@
     height: 20px;
     border: 2px solid #95bef0;
     border-radius: 4px;
+    // border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,11 +34,42 @@
       background-color: transparent;
     }
   }
+
+  &__checker_circle {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #95bef0;
+    border-radius: 4px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 2px;
+    left: 2px;
+
+    &:hover {
+      border: 3px solid #95bef0;
+    }
+
+    &:hover::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      margin: auto;
+      background-color: transparent;
+    }
+  }
+
   // checkbox__switch_invisible
   &__switch_invisible {
     content: "";
     width: 10px;
     height: 10px;
+
+    //
+    // border-radius: 50%;
+    //
 
     position: absolute;
     top: 7px;
@@ -55,7 +87,43 @@
     width: 10px;
     height: 10px;
 
+    //
+    // border-radius: 50%;
+    //
+
     position: absolute;
+    top: 7px;
+    left: 7px;
+    background-color: #00d2ff;
+    transform: scale(1.2);
+    transition: all 0.2s linear;
+
+    display: block;
+  }
+
+  // checkbox__switch_invisible-circle
+  &__switch_invisible-circle {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%; ////
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    background-color: #00d2ff;
+    transform: scale(1.2);
+    transition: all 0.2s linear;
+
+    display: none;
+  }
+
+  // checkbox__switch_visible-circle
+  &__switch_visible-circle {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute; ////
     top: 7px;
     left: 7px;
     background-color: #00d2ff;

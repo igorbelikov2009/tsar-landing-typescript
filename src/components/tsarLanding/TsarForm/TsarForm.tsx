@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { FC, useState, useContext } from "react";
 import { UserDataContext } from "../../../context/index";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
@@ -38,7 +39,7 @@ const TsarForm: FC<TsarFormProps> = ({ valueСhoosePackage }) => {
     setIsDarkgray,
   } = useContext(UserDataContext);
 
-  console.log(userName, surname, patronymic, phone);
+  // console.log(userName, surname, patronymic, phone);
   const [isDormancyUserName, setDormancyUserName] = useState(true);
   const [isDormancySurname, setDormancySurname] = useState(true);
   const [isDormancyPatronymic, setDormancyPatronymic] = useState(true);
@@ -286,7 +287,7 @@ const TsarForm: FC<TsarFormProps> = ({ valueСhoosePackage }) => {
               optionsItems={options}
               isVisible={isVisible}
               onClickSelector={onClickSelector}
-              emitOnChangeRadio={onChangeRadio}
+              emitValue={onChangeRadio}
               emitOnClickRadio={onClickRadio}
             />
           </div>

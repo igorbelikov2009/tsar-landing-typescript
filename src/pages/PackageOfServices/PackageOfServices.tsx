@@ -8,6 +8,7 @@ import ColoredBlock from "../../components/packageOfServices/ColoredBlock/Colore
 import ArrowNavigator from "../../components/packageOfServices/ArrowNavigator/ArrowNavigator";
 import UserData from "../../components/packageOfServices/UserData/UserData";
 import PassportDetails from "../../components/packageOfServices/PassportDetails/PassportDetails";
+import ServicesPackage from "../../components/packageOfServices/ServicesPackage/ServicesPackage";
 
 const PackageOfServices: FC = () => {
   const {
@@ -36,6 +37,7 @@ const PackageOfServices: FC = () => {
         <ArrowNavigator />
         <UserData />
         <PassportDetails />
+        <ServicesPackage />
       </div>
     </div>
   );
