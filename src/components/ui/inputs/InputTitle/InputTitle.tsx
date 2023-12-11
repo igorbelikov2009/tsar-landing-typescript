@@ -4,7 +4,7 @@ import styles from "./InputTitle.module.scss";
 interface InputTitleProps {
   title: string;
   //   isActive: boolean; - путаница
-  isDormancy: boolean; // состояние покоя
+  isDormancy?: boolean; // состояние покоя
 }
 
 const InputTitle: FC<InputTitleProps> = ({ title, isDormancy }) => {

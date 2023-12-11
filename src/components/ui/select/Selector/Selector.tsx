@@ -26,7 +26,7 @@ const Selector: FC<SelectorProps> = ({ value, isVisible, isDarkgray, onClickSele
           </div>
         </div>
 
-        {!isDarkgray ? (
+        {/* {isDarkgray ? (
           <div className={isVisible ? styles["white-line-height-2"] : styles["white-line-height-1"]}>
             <div className={isVisible ? styles["black-line-width-0"] : styles["black-line-width-50"]}></div>
 
@@ -34,7 +34,7 @@ const Selector: FC<SelectorProps> = ({ value, isVisible, isDarkgray, onClickSele
           </div>
         ) : (
           <div></div>
-        )}
+        )} */}
       </div>
     </div>
   );

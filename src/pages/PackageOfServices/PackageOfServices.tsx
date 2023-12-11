@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { FC, useState, useContext } from "react";
+import React, { FC, useState, useContext, useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { UserDataContext } from "../../context/index";
 import Horizontal from "../../components/TopBlock/Horizontal/Horizontal";
@@ -16,9 +16,9 @@ type Inputs = {
   passportNumber: string;
   dateOfBirth: string;
   address: string;
-  dataName: string;
-  dateOfBirthAnotherPerson: string; /// AnotherPerson
-  promoCode: string;
+  dataName?: string;
+  dateOfBirthAnotherPerson?: string; /// AnotherPerson
+  promoCode?: string;
 };
 
 const PackageOfServices: FC = () => {
@@ -56,10 +56,14 @@ const PackageOfServices: FC = () => {
   const [addressPassport, setAddressPassport] = useState("");
   const [amount, setAmount] = useState<number>(packagePrice);
   //
-  const [nameData, setNameData] = useState("");
+  const [nameData, setNameData] = useState("Жопа");
   const [dateOfBirthAnotherPerson, setDateOfBirthAnotherPerson] = useState(""); //
   const [promoCode, setPromoCode] = useState("");
   // console.log(seriesPassport, numberPassport, dateOfBirtPassporth, addressPassport);
+
+  // useEffect(() => {
+  //   setNameData(`${userName}  ${surname}   ${patronymic}`);
+  // }, [patronymic, surname, userName]);
 
   const {
     register, // позволяет регистрировать различные поля для форм
@@ -226,7 +230,7 @@ const PackageOfServices: FC = () => {
                   )}
                 </label>
               </div>
-              {/*  */}
+
               <div className={styles["passport-details__container-date-of-birth"]}>
                 <label className={styles["my-input__label"]}>
                   <InputTitle title="Дата рождения" isDormancy={isDormancyDateOfBirth} />
@@ -323,12 +327,13 @@ const PackageOfServices: FC = () => {
                       type="dataName"
                       {...register("dataName", {
                         required: "Это поле обязательно к заполнению",
+
                         onChange: (event) => {
                           setDormancyDataName(false);
                           setNameData(event.target.value);
                         },
                         onBlur: () => {
-                          if (watch("dataName").length === 0) {
+                          if (watch("dataName")?.length === 0) {
                             setDormancyDataName(true);
                           }
                         },
@@ -361,7 +366,7 @@ const PackageOfServices: FC = () => {
                           setDateOfBirthAnotherPerson(event.target.value);
                         },
                         onBlur: () => {
-                          if (watch("dateOfBirthAnotherPerson").length === 0) {
+                          if (watch("dateOfBirthAnotherPerson")?.length === 0) {
                             setDormancyDateBirthAnother(true);
                           }
                         },
@@ -388,64 +393,21 @@ const PackageOfServices: FC = () => {
               <div className={styles["services-package__container-data-another-person-hide"]}>
                 <div className={styles["services-package__container-for-name"]}>
                   <label className={styles["my-input__label"]}>
-                    <InputTitle title="Фамилия Имя Отчество" isDormancy={isDormancyDataName} />
+                    <InputTitle title="Фамилия Имя Отчество" />
 
-                    <input
-                      className={errors?.dataName ? styles["my-input__field_invalid"] : styles["my-input__field"]}
-                      type="dataName"
-                      {...register("dataName", {
-                        required: "Это поле обязательно к заполнению",
-                        onChange: (event) => {
-                          setDormancyDataName(false);
-                          setNameData(event.target.value);
-                        },
-                        onBlur: () => {
-                          if (watch("dataName").length === 0) {
-                            setDormancyDataName(true);
-                          }
-                        },
-
-                        minLength: {
-                          value: 10,
-                          message: "Минимум 10 символов",
-                        },
-                      })}
-                    />
-                    {errors?.dataName && (
-                      <span className={styles["my-input__error"]}>{errors?.dataName?.message || "Error!"} </span>
-                    )}
+                    <input className={styles["my-input__field"]} />
                   </label>
                 </div>
 
                 <div className={styles["services-package__container-for-date-birth"]}>
                   <label className={styles["my-input__label"]}>
-                    <InputTitle title="Дата рождения" isDormancy={isDormancyDateBirthAnother} />
+                    <InputTitle title="Дата рождения" />
 
                     <input
                       className={
                         errors?.dateOfBirthAnotherPerson ? styles["my-input__field_invalid"] : styles["my-input__field"]
                       }
                       type="text"
-                      {...register("dateOfBirthAnotherPerson", {
-                        required: "Это поле обязательно к заполнению",
-                        onChange: (event) => {
-                          setDormancyDateBirthAnother(false);
-                          setDateOfBirthAnotherPerson(event.target.value);
-                        },
-                        onBlur: () => {
-                          if (watch("dateOfBirthAnotherPerson").length === 0) {
-                            setDormancyDateBirthAnother(true);
-                          }
-                        },
-                        minLength: {
-                          value: 10,
-                          message: "Минимум 10 символов",
-                        },
-                        maxLength: {
-                          value: 10,
-                          message: "Максимум 10 символов",
-                        },
-                      })}
                     />
 
                     {errors?.dateOfBirthAnotherPerson && (
@@ -510,7 +472,7 @@ const PackageOfServices: FC = () => {
                         setPromoCode(event.target.value);
                       },
                       onBlur: () => {
-                        if (watch("promoCode").length === 0) {
+                        if (watch("promoCode")?.length === 0) {
                           setDormancyPromoCode(true);
                         }
                       },
