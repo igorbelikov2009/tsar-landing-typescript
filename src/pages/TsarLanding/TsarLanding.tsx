@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { FC, useState, useContext } from "react";
 import { UserDataContext } from "../../context/index";
 import { useNavigate } from "react-router-dom";
@@ -30,7 +31,7 @@ const TsarLanding: FC = () => {
     setIsDarkgray,
   } = useContext(UserDataContext);
 
-  console.log(userName, surname, patronymic, phone, selectedPackage, packagePrice);
+  // console.log(userName, surname, patronymic, phone, selectedPackage, packagePrice);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [numberMonths, setNumberMonths] = useState<number>(1);

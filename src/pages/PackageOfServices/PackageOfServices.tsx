@@ -9,6 +9,7 @@ import ServicesPackage from "../../components/packageOfServices/ServicesPackage/
 import InputTitle from "../../components/ui/inputs/InputTitle/InputTitle";
 import styles from "./PackageOfServices.module.scss";
 import Checkbox from "../../components/ui/Checkbox/Checkbox";
+import InputSubmit from "../../components/ui/inputs/InputSubmit/InputSubmit";
 
 type Inputs = {
   passportSeries: string;
@@ -17,7 +18,7 @@ type Inputs = {
   address: string;
   dataName: string;
   dateOfBirthAnotherPerson: string; /// AnotherPerson
-  pormoCode: string;
+  promoCode: string;
 };
 
 const PackageOfServices: FC = () => {
@@ -43,18 +44,21 @@ const PackageOfServices: FC = () => {
   const [isDormancyPassportNumber, setDormancyPassportNumber] = useState(true);
   const [isDormancyDateOfBirth, setDormancyDateOfBirth] = useState(true);
   const [isDormancyAddress, setDormancyAddress] = useState(true);
+
   const [isDormancyDataName, setDormancyDataName] = useState(true);
-  const [isDormancyDateOfBirthAnotherPerson, setDormancyDateOfBirthAnotherPerson] = useState(true);
-  const [isDormancyPormoCode, setDormancyPormoCode] = useState(true);
+  const [isDormancyDateBirthAnother, setDormancyDateBirthAnother] = useState(true); //
+  const [isDormancyPromoCode, setDormancyPromoCode] = useState(true);
 
   const [seriesPassport, setSeriesPassport] = useState("");
   const [numberPassport, setNumberPassport] = useState("");
   const [dateOfBirtPassporth, setDateOfBirthPassport] = useState("");
+
   const [addressPassport, setAddressPassport] = useState("");
+  const [amount, setAmount] = useState<number>(packagePrice);
   //
   const [nameData, setNameData] = useState("");
-  const [dateOfBirthAnotherPerson, setDateOfBirthAnotherPerson] = useState("");
-  const [pormoCode, setPormoCode] = useState("");
+  const [dateOfBirthAnotherPerson, setDateOfBirthAnotherPerson] = useState(""); //
+  const [promoCode, setPromoCode] = useState("");
   // console.log(seriesPassport, numberPassport, dateOfBirtPassporth, addressPassport);
 
   const {
@@ -78,7 +82,7 @@ const PackageOfServices: FC = () => {
     setDormancyDateOfBirth(true);
     setDormancyAddress(true);
     setDormancyDataName(true);
-    setDormancyDateOfBirthAnotherPerson(true);
+    setDormancyDateBirthAnother(true);
   };
   // console.log(watch("firstName")); // следит за изменением значения
 
@@ -102,6 +106,11 @@ const PackageOfServices: FC = () => {
   const toogleWholeFamily = () => {
     setAgreeWholeFamily(!isAgreeWholeFamily);
     // console.log(!isAgreeWholeFamily);
+    if (!isAgreeWholeFamily) {
+      setAmount((prev) => prev + 1000);
+    } else {
+      setAmount((prev) => prev - 1000);
+    }
   };
 
   const toogleArrivalDoctor = () => {
@@ -111,8 +120,13 @@ const PackageOfServices: FC = () => {
 
   const toogleMkad30Km = () => {
     setMkad30Km(!isMkad30Km);
-    // console.log(!isMkad30Km);
+    if (!isMkad30Km) {
+      setAmount((prev) => prev + 1200);
+    } else {
+      setAmount((prev) => prev - 1200);
+    }
   };
+  // console.log(amount);
 
   return (
     <div className={styles["package-of-services"]}>
@@ -202,7 +216,7 @@ const PackageOfServices: FC = () => {
                       },
                       maxLength: {
                         value: 6,
-                        message: "Минимум 6 символов",
+                        message: "Максимум 6 символов",
                       },
                     })}
                   />
@@ -212,7 +226,7 @@ const PackageOfServices: FC = () => {
                   )}
                 </label>
               </div>
-
+              {/*  */}
               <div className={styles["passport-details__container-date-of-birth"]}>
                 <label className={styles["my-input__label"]}>
                   <InputTitle title="Дата рождения" isDormancy={isDormancyDateOfBirth} />
@@ -237,7 +251,7 @@ const PackageOfServices: FC = () => {
                       },
                       maxLength: {
                         value: 10,
-                        message: "Минимум 10 символов",
+                        message: "Максимум 10 символов",
                       },
                     })}
                   />
@@ -333,20 +347,22 @@ const PackageOfServices: FC = () => {
 
                 <div className={styles["services-package__container-for-date-birth"]}>
                   <label className={styles["my-input__label"]}>
-                    <InputTitle title="Дата рождения" isDormancy={isDormancyDateOfBirth} />
+                    <InputTitle title="Дата рождения" isDormancy={isDormancyDateBirthAnother} />
 
                     <input
-                      className={errors?.dateOfBirth ? styles["my-input__field_invalid"] : styles["my-input__field"]}
+                      className={
+                        errors?.dateOfBirthAnotherPerson ? styles["my-input__field_invalid"] : styles["my-input__field"]
+                      }
                       type="text"
-                      {...register("dateOfBirth", {
+                      {...register("dateOfBirthAnotherPerson", {
                         required: "Это поле обязательно к заполнению",
                         onChange: (event) => {
-                          setDormancyDateOfBirth(false);
-                          setDateOfBirthPassport(event.target.value);
+                          setDormancyDateBirthAnother(false);
+                          setDateOfBirthAnotherPerson(event.target.value);
                         },
                         onBlur: () => {
-                          if (watch("dateOfBirth").length === 0) {
-                            setDormancyDateOfBirth(true);
+                          if (watch("dateOfBirthAnotherPerson").length === 0) {
+                            setDormancyDateBirthAnother(true);
                           }
                         },
                         minLength: {
@@ -355,13 +371,15 @@ const PackageOfServices: FC = () => {
                         },
                         maxLength: {
                           value: 10,
-                          message: "Минимум 10 символов",
+                          message: "Максимум 10 символов",
                         },
                       })}
                     />
 
-                    {errors?.dateOfBirth && (
-                      <span className={styles["my-input__error"]}>{errors?.dateOfBirth?.message || "Error!"}</span>
+                    {errors?.dateOfBirthAnotherPerson && (
+                      <span className={styles["my-input__error"]}>
+                        {errors?.dateOfBirthAnotherPerson?.message || "Error!"}
+                      </span>
                     )}
                   </label>
                 </div>
@@ -401,20 +419,22 @@ const PackageOfServices: FC = () => {
 
                 <div className={styles["services-package__container-for-date-birth"]}>
                   <label className={styles["my-input__label"]}>
-                    <InputTitle title="Дата рождения" isDormancy={isDormancyDateOfBirth} />
+                    <InputTitle title="Дата рождения" isDormancy={isDormancyDateBirthAnother} />
 
                     <input
-                      className={errors?.dateOfBirth ? styles["my-input__field_invalid"] : styles["my-input__field"]}
+                      className={
+                        errors?.dateOfBirthAnotherPerson ? styles["my-input__field_invalid"] : styles["my-input__field"]
+                      }
                       type="text"
-                      {...register("dateOfBirth", {
+                      {...register("dateOfBirthAnotherPerson", {
                         required: "Это поле обязательно к заполнению",
                         onChange: (event) => {
-                          setDormancyDateOfBirth(false);
-                          setDateOfBirthPassport(event.target.value);
+                          setDormancyDateBirthAnother(false);
+                          setDateOfBirthAnotherPerson(event.target.value);
                         },
                         onBlur: () => {
-                          if (watch("dateOfBirth").length === 0) {
-                            setDormancyDateOfBirth(true);
+                          if (watch("dateOfBirthAnotherPerson").length === 0) {
+                            setDormancyDateBirthAnother(true);
                           }
                         },
                         minLength: {
@@ -423,13 +443,15 @@ const PackageOfServices: FC = () => {
                         },
                         maxLength: {
                           value: 10,
-                          message: "Минимум 10 символов",
+                          message: "Максимум 10 символов",
                         },
                       })}
                     />
 
-                    {errors?.dateOfBirth && (
-                      <span className={styles["my-input__error"]}>{errors?.dateOfBirth?.message || "Error!"}</span>
+                    {errors?.dateOfBirthAnotherPerson && (
+                      <span className={styles["my-input__error"]}>
+                        {errors?.dateOfBirthAnotherPerson?.message || "Error!"}
+                      </span>
                     )}
                   </label>
                 </div>
@@ -465,7 +487,7 @@ const PackageOfServices: FC = () => {
               </div>
 
               <div className={styles["services-package__container-checkbox"]}>
-                <Checkbox isCircle={true} checkedValue={isMkad30Km} toogleChecked={toogleMkad30Km} title="Всей семье" />
+                <Checkbox isCircle={true} checkedValue={isMkad30Km} toogleChecked={toogleMkad30Km} title="МКАД +30км" />
               </div>
 
               <div className={styles["services-package__container-for-checkbox-description"]}>
@@ -476,20 +498,20 @@ const PackageOfServices: FC = () => {
             <div className={styles["services-package__container-promo-code"]}>
               <div className={styles["services-package__container-promo-code-title"]}>
                 <label className={styles["my-input__label"]}>
-                  <InputTitle title="Промокод" isDormancy={isDormancyPormoCode} />
+                  <InputTitle title="Промокод" isDormancy={isDormancyPromoCode} />
 
                   <input
-                    className={errors?.pormoCode ? styles["my-input__field_invalid"] : styles["my-input__field"]}
-                    type="pormoCode"
-                    {...register("pormoCode", {
+                    className={errors?.promoCode ? styles["my-input__field_invalid"] : styles["my-input__field"]}
+                    type="promoCode"
+                    {...register("promoCode", {
                       required: "Это поле обязательно к заполнению",
                       onChange: (event) => {
-                        setDormancyPormoCode(false);
-                        setPormoCode(event.target.value);
+                        setDormancyPromoCode(false);
+                        setPromoCode(event.target.value);
                       },
                       onBlur: () => {
-                        if (watch("pormoCode").length === 0) {
-                          setDormancyPormoCode(true);
+                        if (watch("promoCode").length === 0) {
+                          setDormancyPromoCode(true);
                         }
                       },
 
@@ -499,23 +521,28 @@ const PackageOfServices: FC = () => {
                       },
                     })}
                   />
-                  {errors?.pormoCode && (
-                    <span className={styles["my-input__error"]}>{errors?.pormoCode?.message || "Error!"} </span>
+                  {errors?.promoCode && (
+                    <span className={styles["my-input__error"]}>{errors?.promoCode?.message || "Error!"} </span>
                   )}
                 </label>
               </div>
               <div className={styles["services-package__container-promo-code-button"]}>
-                <button disabled={!!errors?.pormoCode} className={styles["services-package__promo-code-button"]}>
+                {/* <button disabled={!!errors?.promoCode} className={styles["services-package__promo-code-button"]}> */}
+                <button disabled className={styles["services-package__promo-code-button"]}>
                   Применить
                 </button>
               </div>
             </div>
           </div>
-        </form>
 
-        <div className={styles["services-available__container"]}>
-          <p className={styles["services-available"]}>Услуги будут доступны в течение суток после оплаты.</p>
-        </div>
+          <div className={styles["services-available__container"]}>
+            <p className={styles["services-available"]}>Услуги будут доступны в течение суток после оплаты.</p>
+          </div>
+
+          <div className={styles["container-submit"]}>
+            <InputSubmit children={`Оплатить ${amount} ₽`} disabled={!isValid} />
+          </div>
+        </form>
       </div>
     </div>
   );
