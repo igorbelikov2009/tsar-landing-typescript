@@ -8,18 +8,23 @@ import styles from "./ServicesPackage.module.scss";
 type Inputs = {
   dataName: string;
   dateOfBirth: string;
+  pormoCode: string;
 };
 
 const ServicesPackage = () => {
   const [isDormancyDataName, setDormancyDataName] = useState(true);
   const [isDormancyDateOfBirth, setDormancyDateOfBirth] = useState(true);
+  const [isDormancyPormoCode, setDormancyPormoCode] = useState(true);
 
   const [nameData, setNameData] = useState("");
   const [dateOfBirtPassporth, setDateOfBirthPassport] = useState("");
+  const [pormoCode, setPormoCode] = useState("");
 
   const [isAgreeForMe, setAgreeForMe] = useState(false);
   const [isAgreeAnotherPerson, setAgreeAnotherPerson] = useState(false);
   const [isAgreeWholeFamily, setAgreeWholeFamily] = useState(false);
+  const [isArrivalDoctor, setArrivalDoctor] = useState(false);
+  const [isMkad30Km, setMkad30Km] = useState(false);
 
   const {
     register, // позволяет регистрировать различные поля для форм
@@ -55,6 +60,16 @@ const ServicesPackage = () => {
   const toogleWholeFamily = () => {
     setAgreeWholeFamily(!isAgreeWholeFamily);
     // console.log(!isAgreeWholeFamily);
+  };
+
+  const toogleArrivalDoctor = () => {
+    setArrivalDoctor(!isArrivalDoctor);
+    // console.log(!isArrivalDoctor);
+  };
+
+  const toogleMkad30Km = () => {
+    setMkad30Km(!isMkad30Km);
+    // console.log(!isMkad30Km);
   };
 
   return (
@@ -221,14 +236,76 @@ const ServicesPackage = () => {
         />
       </div>
 
-      <div className={styles["services-package__container-for-family-children"]}>
-        <p className={styles["services-package__family-children"]}>
+      <div className={styles["services-package__container-for-checkbox-description"]}>
+        <p className={styles["services-package__checkbox-description"]}>
           Супруг, супруга, дети до 18 лет{" "}
-          <span className={styles["services-package__family-children-span"]}> + 1000 ₽</span>
+          <span className={styles["services-package__checkbox-description-span"]}> + 1000 ₽</span>
         </p>
       </div>
 
       <div className={styles["services-package__line"]}></div>
+
+      <div className={styles["services-package__container-checkbox"]}>
+        <Checkbox
+          isCircle={true}
+          checkedValue={isArrivalDoctor}
+          toogleChecked={toogleArrivalDoctor}
+          title="Выезд врача в пределах МКАД"
+        />
+      </div>
+
+      <div className={styles["services-package__container-checkbox"]}>
+        <Checkbox isCircle={true} checkedValue={isMkad30Km} toogleChecked={toogleMkad30Km} title="Всей семье" />
+      </div>
+
+      <div className={styles["services-package__container-for-checkbox-description"]}>
+        <p className={styles["services-package__checkbox-description"]}>+ 1000 ₽</p>
+      </div>
+
+      <div className={styles["services-package__container-promo-code"]}>
+        <div className={styles["services-package__container-promo-code-title"]}>
+          <label className={styles["my-input__label"]}>
+            <InputTitle title="Промокод" isDormancy={isDormancyPormoCode} />
+
+            <input
+              className={errors?.pormoCode ? styles["my-input__field_invalid"] : styles["my-input__field"]}
+              type="pormoCode"
+              {...register("pormoCode", {
+                required: "Это поле обязательно к заполнению",
+                onChange: (event) => {
+                  setDormancyPormoCode(false);
+                  setPormoCode(event.target.value);
+                },
+                onBlur: () => {
+                  if (watch("pormoCode").length === 0) {
+                    setDormancyPormoCode(true);
+                  }
+                },
+
+                minLength: {
+                  value: 6,
+                  message: "Минимум 6 символов",
+                },
+              })}
+            />
+            {errors?.pormoCode && (
+              <span className={styles["my-input__error"]}>{errors?.pormoCode?.message || "Error!"} </span>
+            )}
+          </label>
+        </div>
+        <div className={styles["services-package__container-promo-code-button"]}>
+          <button disabled={!!errors?.pormoCode} className={styles["services-package__promo-code-button"]}>
+            Применить
+          </button>
+        </div>
+      </div>
+
+      <div className={styles["services-package__line"]}></div>
+      <div className={styles["services-package__container-services-available"]}>
+        <p className={styles["services-package__services-available"]}>
+          Услуги будут доступны в течение суток после оплаты.
+        </p>
+      </div>
     </div>
   );
 };

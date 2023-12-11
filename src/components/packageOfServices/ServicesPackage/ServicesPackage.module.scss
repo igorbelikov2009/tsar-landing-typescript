@@ -62,20 +62,20 @@
     margin-bottom: 24px;
   }
 
-  &__container-for-family-children {
+  &__container-for-checkbox-description {
     width: 100%;
     max-width: 468px;
     margin-bottom: 48px;
     margin-left: 40px;
   }
 
-  &__family-children {
+  &__checkbox-description {
     color: #96a0aa;
     font-size: 13px;
     line-height: 24px;
   }
 
-  &__family-children-span {
+  &__checkbox-description-span {
     display: block;
     color: #96a0aa;
     font-size: 13px;
@@ -86,6 +86,63 @@
     width: 736px;
     height: 1px;
     background-color: #d2dce6;
+    // margin-bottom: 48px;
+  }
+
+  &__container-promo-code {
+    width: 100%;
+    max-width: 432px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 48px;
+    margin-bottom: 72px;
+  }
+
+  &__container-promo-code-title {
+    width: 280px;
+    height: 48px;
+    margin-right: 24px;
+  }
+
+  &__container-promo-code-button {
+    width: 128px;
+    height: 48px;
+  }
+
+  &__promo-code-button {
+    width: 100%;
+    padding: 12px 18px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #50287d;
+    border: 1px solid #50287d;
+    box-sizing: border-box;
+    border-radius: 24px;
+    opacity: 1;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &[disabled] {
+      border: 1px solid #d2dce6;
+      color: #d2dce6;
+    }
+  }
+
+  &__container-services-available {
+    width: 100%;
+    max-width: 432px;
+    height: 24px;
+    margin-top: 72px;
+  }
+
+  &__services-available {
+    font-size: 16px;
+    line-height: 24px;
+    color: #78828c;
   }
 }
 
