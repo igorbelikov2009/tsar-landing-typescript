@@ -10,8 +10,372 @@
   &__container {
     width: 100%;
     max-width: 944px;
-    height: 1705px; ///////////////////////////////
     margin: 0 auto;
     padding: 0 28px;
+  }
+}
+
+// user-data
+.user-data {
+  width: 100%;
+  // max-width: 432px;
+  max-width: 888px;
+  height: 96px;
+  padding: 0x 12px;
+  margin-bottom: 72px;
+
+  @media screen and (min-width: 576px) {
+    padding: 0 48px;
+  }
+
+  &__container-name {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 24px;
+  }
+
+  &__name {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #28323c;
+    margin-right: 6px;
+  }
+
+  &__phone {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #78828c;
+  }
+
+  &__container-selected-package {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &__selected-package {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #78828c;
+    margin-right: 12px;
+  }
+
+  &__amount-to-paid {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #78828c;
+  }
+}
+// user-data
+
+// form
+.form {
+  width: 100%;
+  max-width: 888px;
+  padding: 0 12px;
+
+  @media screen and (min-width: 576px) {
+    padding: 0 48px;
+  }
+}
+// form
+
+// passport-details__
+.passport-details {
+  width: 100%;
+  max-width: 888px;
+  border: 1px solid #d2dce6;
+  box-sizing: border-box;
+  padding: 48px 12px;
+  margin-bottom: 48px;
+  // background-color: #f3f5f7;
+
+  @media screen and (min-width: 576px) {
+    padding: 48px 76px;
+  }
+
+  &__line {
+    width: 100%;
+    height: 1px;
+    background-color: #d2dce6;
+  }
+
+  &__container-heading {
+    width: 100%;
+    max-width: 736px;
+    height: 48px;
+    margin-bottom: 48px;
+  }
+
+  &__heading {
+    font-size: 34px;
+    line-height: 48px;
+    font-weight: 400;
+    color: #28323c;
+  }
+
+  &__data-container {
+    width: 100%;
+    max-width: 736px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+
+  &__container-passport-series {
+    width: 128px;
+    padding-right: 24px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__container-passport-number {
+    width: 280px;
+    padding-right: 24px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__container-date-of-birth {
+    width: 256px;
+    padding-right: 24px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__container-address {
+    width: 100%;
+    max-width: 736px;
+    height: 48px;
+  }
+}
+
+// passport-details__
+
+// services-package
+.services-package {
+  width: 100%;
+  max-width: 888px;
+  padding: 48px 12px;
+  border: 1px solid #d2dce6;
+  box-sizing: border-box;
+
+  // background-color: #f3f5f7;
+  margin-bottom: 48px;
+
+  @media screen and (min-width: 576px) {
+    padding: 48px 76px;
+  }
+
+  &__container-heading {
+    width: 100%;
+    max-width: 432px;
+    height: 48px;
+    margin-bottom: 48px;
+  }
+
+  &__heading {
+    font-size: 34px;
+    line-height: 48px;
+    font-weight: 400;
+    color: #28323c;
+  }
+
+  &__container-checkbox {
+    width: 100%;
+    max-width: 488px;
+    height: 48px;
+  }
+
+  &__container-data-another-person-hide {
+    width: 100%;
+    max-width: 468px;
+    margin-bottom: 0px;
+    margin-left: 40px;
+    height: 0;
+    transform: scaleY(0.01);
+    transition: all 0.3s;
+  }
+
+  &__container-data-another-person-show {
+    width: 100%;
+    max-width: 468px;
+    margin-bottom: 48px;
+    margin-left: 40px;
+    height: 120px;
+    transform: scaleY(1);
+    transition: all 0.3s;
+  }
+
+  &__container-for-name {
+    width: 100%;
+    height: 48px;
+    margin-bottom: 24px;
+  }
+
+  &__container-for-date-birth {
+    width: 164px;
+    height: 48px;
+    margin-bottom: 24px;
+  }
+
+  &__container-for-checkbox-description {
+    width: 100%;
+    max-width: 468px;
+    margin-bottom: 48px;
+    margin-left: 40px;
+  }
+
+  &__checkbox-description {
+    color: #96a0aa;
+    font-size: 13px;
+    line-height: 24px;
+  }
+
+  &__checkbox-description-span {
+    display: block;
+    color: #96a0aa;
+    font-size: 13px;
+    line-height: 24px;
+  }
+
+  &__line {
+    width: 100%;
+    height: 1px;
+    background-color: #d2dce6;
+  }
+
+  &__doctors-visit {
+    width: 100%;
+    margin-top: 48px;
+  }
+
+  &__container-promo-code {
+    width: 100%;
+    max-width: 432px;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+
+  &__container-promo-code-title {
+    width: 280px;
+    height: 48px;
+    margin-right: 24px;
+  }
+
+  &__container-promo-code-button {
+    width: 128px;
+    height: 48px;
+  }
+
+  &__promo-code-button {
+    width: 100%;
+    padding: 12px 18px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #50287d;
+    border: 1px solid #50287d;
+    box-sizing: border-box;
+    border-radius: 24px;
+    opacity: 1;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &[disabled] {
+      border: 1px solid #d2dce6;
+      color: #d2dce6;
+    }
+  }
+}
+// services-package
+
+.services-available {
+  font-size: 16px;
+  line-height: 24px;
+  color: #78828c;
+
+  &__container {
+    width: 100%;
+    // max-width: 432px;
+    height: 24px;
+    padding: 0 12px;
+    margin-bottom: 48px;
+    margin-top: 76px;
+
+    @media screen and (min-width: 576px) {
+      padding: 0 48px;
+    }
+  }
+}
+
+.my-input {
+  &__label {
+    width: 100%;
+    //   padding-bottom: 20px;
+    position: relative;
+  }
+
+  &__error {
+    display: block;
+    position: absolute;
+    top: 67px;
+    top: 56px;
+    left: 0;
+    font-size: 12px;
+    line-height: 12px;
+    color: red;
+  }
+}
+
+.my-input__field {
+  width: 100%;
+  font-size: 16px;
+  line-height: 23px;
+  padding: 16px 0 8px;
+  color: #28323c;
+  border-bottom: 1px solid #b5bdc8;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  &:hover {
+    line-height: 22px;
+    border-bottom: 2px solid #50287d;
+  }
+
+  &:focus {
+    line-height: 22px;
+    border-bottom: 2px solid #50287d;
+  }
+}
+
+.my-input__field_invalid {
+  width: 100%;
+  font-size: 16px;
+  line-height: 23px;
+  padding: 16px 0 8px;
+  color: #28323c;
+  border-bottom: 1px solid red;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  &:hover {
+    line-height: 22px;
+    border-bottom: 2px solid #50287d;
+  }
+
+  &:focus {
+    line-height: 22px;
+    border-bottom: 2px solid #50287d;
   }
 }

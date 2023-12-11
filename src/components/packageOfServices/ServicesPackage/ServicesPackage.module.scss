@@ -1,13 +1,12 @@
 .services-package {
   width: 100%;
   max-width: 888px;
-  height: 1000px; /////////////////
   padding: 48px 12px;
   background-color: #f3f5f7;
   margin-bottom: 48px;
 
   @media screen and (min-width: 576px) {
-    padding: 48px 76px;
+    // padding: 48px 76px;
   }
 
   &__container-heading {
@@ -83,10 +82,10 @@
   }
 
   &__line {
-    width: 736px;
+    // width: 736px;
+    width: 100%;
     height: 1px;
     background-color: #d2dce6;
-    // margin-bottom: 48px;
   }
 
   &__container-promo-code {
